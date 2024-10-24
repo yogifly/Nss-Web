@@ -1,0 +1,126 @@
+/* src/components/Login.css */
+
+body {
+  background-color: #f4f7f6; /* Light background color */
+  font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.login-container {
+  max-width: 400px; /* Maximum width for the login container */
+  margin: 100px auto; /* Center the container */
+  padding: 20px; /* Padding inside the container */
+  background: white; /* White background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h2 {
+  text-align: center; /* Centered heading */
+  color: #333; /* Dark gray color for heading */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+.input-group {
+  margin-bottom: 15px; /* Space between input groups */
+}
+
+label {
+  display: block; /* Block display for labels */
+  margin-bottom: 5px; /* Space below label */
+  color: #555; /* Medium gray color for labels */
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%; /* Full width inputs */
+  padding: 10px; /* Padding inside inputs */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size for inputs */
+  transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border-color: #007bff; /* Highlight border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.password-input {
+  position: relative; /* Position relative for the eye icon */
+}
+
+.toggle-password {
+  position: absolute; /* Position absolute for eye icon */
+  right: 10px; /* Right alignment */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  cursor: pointer; /* Pointer cursor for interaction */
+  color: #555; /* Color for the icon */
+}
+
+.login-button {
+  width: 100%; /* Full width button */
+  padding: 10px; /* Padding inside button */
+  background-color: #007bff; /* Blue background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size for button */
+  cursor: pointer; /* Pointer cursor for button */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.login-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    margin: 50px 20px; /* Reduce margins on small screens */
+    padding: 15px; /* Reduce padding on small screens */
+  }
+
+  h2 {
+    font-size: 24px; /* Slightly smaller heading on small screens */
+  }
+
+  .login-button {
+    font-size: 14px; /* Smaller font size for button */
+  }
+}
+.reset-password-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reset-password-section input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.reset-password-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.reset-password-button:hover {
+  background-color: #0056b3;
+}
+
+.reset-password-section p {
+  color: green;
+  font-weight: 500;
+}

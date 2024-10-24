@@ -1,0 +1,50 @@
+.photo-upload-container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .photo-upload-container input,
+  .photo-upload-container textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+  }
+  
+  .photo-upload-container button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .photo-upload-container .progress-bar {
+    margin-top: 10px;
+  }
+  
+  .image-gallery {
+    margin-top: 30px;
+  }
+  
+  .image-item {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .image-item img {
+    display: block;
+  }
+  
+  .image-item h4 {
+    margin: 5px 0;
+    font-size: 1.1em;
+  }
+  
+  .image-item p {
+    font-size: 0.9em;
+  }
+  
