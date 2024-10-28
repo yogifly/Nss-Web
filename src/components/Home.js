@@ -47,6 +47,7 @@ function Home() {
               <a href="/contact">Contact Information</a>
               <a href="#news">News & Announcements</a>
               <a href="#volunteer">Volunteer</a>
+              <a href="/profile">Profile</a>
             </div>
           </div>
         </div>

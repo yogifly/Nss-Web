@@ -84,8 +84,16 @@ function Head() {
                 <a className="nav-link active" href="/events">Event Planning</a>
               </li>
               <li className="nav-item">
+                <a className="nav-link active" href="/response">Give response</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" href="/profile">profile</a>
+              </li>
+              <li className="nav-item">
                 <span className="navbar-text me-2">Welcome, {fullname}</span> {/* Display fullname */}
               </li>
+              
+              
               <li className="nav-item">
                 <button onClick={handleLogout} className="btn btn-outline-light">Logout</button> {/* Logout button */}
               </li>

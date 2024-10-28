@@ -19,6 +19,9 @@ import Landing from './components/Landing';
 import About from './components/About';
 import Contact from './components/Contact';
 import Attendance from './components/AddAttendance';
+import Profile from './components/Profile';
+import FeedbackForm from './components/FeedbackForm';
+import ResponseForm from './components/ResponseForm';
 
 const App = () => {
   return (
@@ -42,6 +45,10 @@ const App = () => {
         <Route path="/volunteers/events" element={<EventsList />} />
         <Route path="/head/head-list" element={<HeadList />} />
         <Route path="/head/manage-volunteers" element={<VolunteerList />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/feedback" element={<FeedbackForm />} />
+        <Route path="/response" element={<ResponseForm />} />
+
       </Routes>
     </Router>
   );

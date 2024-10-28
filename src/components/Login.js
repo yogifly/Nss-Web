@@ -57,6 +57,7 @@ const Login = () => {
           localStorage.setItem('username', username); // Email
           localStorage.setItem('fullname', userName); // Fullname
           localStorage.setItem('userid', userId);     // User ID
+          localStorage.setItem('userType', userType); // Storing userType
 
           // Alert the fullname, email, and userid
           alert(`Fullname: ${userName}\nEmail: ${username}\nUserID: ${userId}`);

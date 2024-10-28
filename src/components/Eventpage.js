@@ -12,6 +12,9 @@ const EventPage = () => {
         <Link to="/events/update-event" style={styles.link}>
           <button style={styles.button}>Manage Event</button>
         </Link>
+        <Link to="/feedback" style={styles.link}>
+          <button style={styles.button}>Add Feedback From</button>
+        </Link>
         <Link to="/attendance" style={styles.link}>
           <button style={styles.button}>Add Attendance</button>
         </Link>
