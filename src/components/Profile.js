@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase'; // Your firebase configuration
+import { db } from '../firebase';
 import './Profile.css';
 
 const Profile = () => {
@@ -10,32 +10,25 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Retrieve user details from localStorage
     const username = localStorage.getItem('username');
     const fullname = localStorage.getItem('fullname');
     const userId = localStorage.getItem('userid');
     const userType = localStorage.getItem('userType');
 
-    // Check if user is logged in, if not, redirect to login page
     if (!username || !fullname || !userId || !userType) {
-      navigate('/login'); // Redirect to login if not authenticated
+      navigate('/login');
     } else {
-      // Fetch additional user details from Firestore
       fetchUserDetails(userType, userId);
     }
   }, [navigate]);
 
   const fetchUserDetails = async (userType, userId) => {
     try {
-      // Determine the collection based on userType
       const collectionName = userType === 'head' ? 'heads' : 'volunteers';
-      const docRef = doc(db, collectionName, userId); // Create a reference to the document
-
-      // Fetch the document from Firestore
+      const docRef = doc(db, collectionName, userId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        // Set the user details in state
         setUserDetails(docSnap.data());
       } else {
         console.error('No such user found in Firestore.');
@@ -43,12 +36,12 @@ const Profile = () => {
     } catch (error) {
       console.error('Error fetching user details:', error);
     } finally {
-      setLoading(false); // Set loading to false once fetching is complete
+      setLoading(false);
     }
   };
 
   const renderInfographic = (hoursRegistered) => {
-    const maxHours = 120; // Set the maximum hours
+    const maxHours = 120;
     const percentage = (hoursRegistered / maxHours) * 100;
 
     return (
@@ -67,7 +60,7 @@ const Profile = () => {
   };
 
   if (loading) {
-    return <div className="loading">Loading...</div>; // Optional loading state
+    return <div className="loading">Loading...</div>;
   }
 
   return (
@@ -86,6 +79,19 @@ const Profile = () => {
           <div className="hours-container">
             <h4>Hours Registered:</h4>
             {renderInfographic(userDetails.hoursRegistered)}
+          </div>
+          <div className="events-registered">
+            <h4>Events Registered:</h4>
+            {userDetails.EventsRegistered && userDetails.EventsRegistered.length > 0 ? (
+              userDetails.EventsRegistered.map((event, index) => (
+                <div key={index} className="event-item">
+                  <p><strong>Event Name:</strong> {event.eventname}</p>
+                  <p><strong>Status:</strong> {event.status ?? 'Pending'}</p>
+                </div>
+              ))
+            ) : (
+              <p>No events registered yet.</p>
+            )}
           </div>
         </>
       ) : (

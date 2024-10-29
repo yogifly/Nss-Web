@@ -1,0 +1,89 @@
+.feedback-report-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  max-width: 1200px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-report-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.feedback-display {
+  margin-top: 20px;
+}
+
+.feedback-display h3 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.question-answer-pair {
+  margin: 20px 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.question-answer-pair p {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.chart-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  justify-content: center;
+}
+
+.bar-chart, .pie-chart {
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.pie-chart {
+  max-width: 50px;
+  min-width: 50px;
+  padding: 10px;
+}
+
+.generate-feedback-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.generate-feedback-btn:hover {
+  background-color: #45a049;
+}

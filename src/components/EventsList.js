@@ -8,6 +8,7 @@ const EventsList = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [fullname, setFullname] = useState(''); // Set this from user authentication or input
   const [userid, setUserId] = useState(''); // User ID state
+  const [userRole, setUserRole] = useState(''); // User role state
 
   // Fetch events from Firestore
   const fetchEvents = async () => {
@@ -24,13 +25,15 @@ const EventsList = () => {
     // Fetch the events once the component mounts
     fetchEvents();
 
-    // Retrieve fullname and userid from localStorage
+    // Retrieve fullname, userid, and userRole from localStorage
     const storedFullname = localStorage.getItem('fullname');
     const storedUserId = localStorage.getItem('userid');
+    const storedUserRole = localStorage.getItem('userType');
     
-    if (storedFullname && storedUserId) {
+    if (storedFullname && storedUserId && storedUserRole) {
       setFullname(storedFullname);
       setUserId(storedUserId);
+      setUserRole(storedUserRole);
     } else {
       alert('Please login to register for events.');
     }
@@ -69,6 +72,20 @@ const EventsList = () => {
           registrations: arrayUnion(registrationData) // Use arrayUnion to add the registration object to the "registrations" array
         });
 
+        // Determine collection based on userRole
+        const userCollection = userRole === 'head' ? 'heads' : 'volunteers';
+        const userDocRef = doc(db, userCollection, userid);
+
+        const eventRegistrationData = {
+          eventname: selectedEvent.name,
+          status: null // Initialize status as null
+        };
+
+        // Add the event name and status to the EventsRegistered array in the user's document
+        await updateDoc(userDocRef, {
+          EventsRegistered: arrayUnion(eventRegistrationData) // Use arrayUnion to add the event registration to the array
+        });
+
         alert(`Successfully registered ${fullname} for the event: ${selectedEvent.name}`);
         setSelectedEvent(null); // Clear the selected event after registration
       } catch (error) {
@@ -96,7 +113,7 @@ const EventsList = () => {
         <div className="event-details">
           <h3>{selectedEvent.name}</h3>
           <p><strong>Description:</strong> {selectedEvent.description}</p>
-          <p><strong>Hours Alloted:</strong> {selectedEvent.hoursAlloted}</p>
+          <p><strong>Hours Allotted:</strong> {selectedEvent.hoursAlloted}</p>
           <p><strong>Date:</strong> {selectedEvent.date}</p>
           <p><strong>Reporting Time:</strong> {selectedEvent.reportingTime}</p>
           <p><strong>Rules:</strong> {selectedEvent.rules}</p>

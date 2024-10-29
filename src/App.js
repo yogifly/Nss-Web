@@ -22,7 +22,8 @@ import Attendance from './components/AddAttendance';
 import Profile from './components/Profile';
 import FeedbackForm from './components/FeedbackForm';
 import ResponseForm from './components/ResponseForm';
-
+import FeedbackReport from './components/FeedbackReport';
+import ReportsPage from './components/ReportsPage';
 const App = () => {
   return (
     <Router>
@@ -48,6 +49,8 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/feedback" element={<FeedbackForm />} />
         <Route path="/response" element={<ResponseForm />} />
+        <Route path="/report" element={<FeedbackReport />} />
+        <Route path="/report-page" element={<ReportsPage />} />
 
       </Routes>
     </Router>

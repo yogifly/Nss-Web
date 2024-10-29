@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase'; // Import Firestore db
-import { collection, getDocs, doc, getDoc, updateDoc } from 'firebase/firestore'; // Import Firestore methods
-import './AddAttendance.css'; // Import the CSS file
+import { db } from '../firebase';
+import { collection, getDocs, doc, getDoc, updateDoc } from 'firebase/firestore';
+import './AddAttendance.css';
 
 const AddAttendance = () => {
   const [events, setEvents] = useState([]);
   const [selectedEventId, setSelectedEventId] = useState('');
+  const [selectedEventName, setSelectedEventName] = useState('');
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [attendance, setAttendance] = useState({});
   const [hoursAlloted, setHoursAlloted] = useState(0);
   const [markedAttendance, setMarkedAttendance] = useState([]);
 
-  // Fetch all events
   const fetchEvents = async () => {
     try {
       const eventsCollection = collection(db, 'events');
@@ -30,20 +30,16 @@ const AddAttendance = () => {
     fetchEvents();
   }, []);
 
-  // Function to handle event selection
   const handleSelectChange = async (e) => {
     const eventId = e.target.value;
     setSelectedEventId(eventId);
     
-    // Fetch selected event details
     const selectedEvent = events.find(event => event.id === eventId);
     if (selectedEvent) {
-      if (selectedEvent.registrations) {
-        setRegisteredUsers(selectedEvent.registrations);
-      }
+      setSelectedEventName(selectedEvent.name || '');
+      setRegisteredUsers(selectedEvent.registrations || []);
       setHoursAlloted(parseInt(selectedEvent.hoursAlloted) || 0);
 
-      // Fetch marked attendance for this event
       const eventRef = doc(db, 'events', eventId);
       const eventSnap = await getDoc(eventRef);
       if (eventSnap.exists()) {
@@ -52,13 +48,12 @@ const AddAttendance = () => {
 
         const initialAttendance = {};
         eventData.registrations.forEach((person) => {
-          // Pre-fill attendance based on markedAttendance
           const markedUser = (eventData.markedAttendance || []).find(
             (attendee) => attendee.userid === person.userid
           );
           initialAttendance[person.userid] = markedUser
             ? markedUser.status === 'present'
-            : false; // Default to false if not present in markedAttendance
+            : false;
         });
         setAttendance(initialAttendance);
       }
@@ -70,30 +65,25 @@ const AddAttendance = () => {
     }
   };
 
-  // Function to handle attendance checkbox change
   const handleAttendanceChange = (userid) => {
     setAttendance((prevAttendance) => ({
       ...prevAttendance,
-      [userid]: !prevAttendance[userid], // Toggle attendance
+      [userid]: !prevAttendance[userid],
     }));
   };
 
-  // Function to submit attendance and update hoursRegistered for both volunteers and heads
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const markedAttendanceArray = [...markedAttendance]; // Start with current markedAttendance
+    const markedAttendanceArray = [...markedAttendance];
 
     try {
       await Promise.all(
         registeredUsers.map(async (person) => {
           const isPresent = attendance[person.userid];
-
-          // Check if the user is already marked
           const existingRecord = markedAttendanceArray.find(
             (record) => record.userid === person.userid
           );
 
-          // Update markedAttendance array
           if (existingRecord) {
             existingRecord.status = isPresent ? 'present' : 'absent';
           } else {
@@ -104,43 +94,55 @@ const AddAttendance = () => {
             });
           }
 
-          // Update hours only if the user is marked as present for the first time
-          if (isPresent && (!existingRecord || existingRecord.status !== 'present')) {
-            const personRefVolunteer = doc(db, 'volunteers', person.userid);
-            const personRefHead = doc(db, 'heads', person.userid);
-            
-            // Check and update volunteer's hoursRegistered
-            const personSnapVolunteer = await getDoc(personRefVolunteer);
-            if (personSnapVolunteer.exists()) {
-              const currentHours = parseInt(personSnapVolunteer.data().hoursRegistered) || 0;
-              const newHours = currentHours + hoursAlloted;
-              await updateDoc(personRefVolunteer, {
-                hoursRegistered: newHours
-              });
-            }
+          const personRefVolunteer = doc(db, 'volunteers', person.userid);
+          const personRefHead = doc(db, 'heads', person.userid);
 
-            // Check and update head's hoursRegistered
-            const personSnapHead = await getDoc(personRefHead);
-            if (personSnapHead.exists()) {
-              const currentHours = parseInt(personSnapHead.data().hoursRegistered) || 0;
-              const newHours = currentHours + hoursAlloted;
-              await updateDoc(personRefHead, {
-                hoursRegistered: newHours
-              });
+          // Update EventsRegistered and hoursRegistered for volunteer
+          const personSnapVolunteer = await getDoc(personRefVolunteer);
+          if (personSnapVolunteer.exists()) {
+            const eventsRegisteredVolunteer = personSnapVolunteer.data().EventsRegistered || [];
+            const currentHoursRegisteredVolunteer = personSnapVolunteer.data().hoursRegistered || 0;
+
+            // Always add hoursAlloted to hoursRegistered
+            if (eventsRegisteredVolunteer.some(event => event.eventName === selectedEventName)) {
+              eventsRegisteredVolunteer.find(event => event.eventName === selectedEventName).status = isPresent ? 'present' : 'absent';
+            } else {
+              eventsRegisteredVolunteer.push({ eventName: selectedEventName, status: isPresent ? 'present' : 'absent' });
             }
+            await updateDoc(personRefVolunteer, {
+              EventsRegistered: eventsRegisteredVolunteer,
+              hoursRegistered: currentHoursRegisteredVolunteer + hoursAlloted, // Always adding the hoursAlloted
+            });
+          }
+
+          // Update EventsRegistered and hoursRegistered for head
+          const personSnapHead = await getDoc(personRefHead);
+          if (personSnapHead.exists()) {
+            const eventsRegisteredHead = personSnapHead.data().EventsRegistered || [];
+            const currentHoursRegisteredHead = personSnapHead.data().hoursRegistered || 0;
+
+            // Always add hoursAlloted to hoursRegistered
+            if (eventsRegisteredHead.some(event => event.eventName === selectedEventName)) {
+              eventsRegisteredHead.find(event => event.eventName === selectedEventName).status = isPresent ? 'present' : 'absent';
+            } else {
+              eventsRegisteredHead.push({ eventName: selectedEventName, status: isPresent ? 'present' : 'absent' });
+            }
+            await updateDoc(personRefHead, {
+              EventsRegistered: eventsRegisteredHead,
+              hoursRegistered: currentHoursRegisteredHead + hoursAlloted, // Always adding the hoursAlloted
+            });
           }
         })
       );
 
-      // Save the updated markedAttendance array to Firestore
       const eventRef = doc(db, 'events', selectedEventId);
       await updateDoc(eventRef, {
-        markedAttendance: markedAttendanceArray // Update the markedAttendance array
+        markedAttendance: markedAttendanceArray
       });
 
       alert('Attendance marked successfully! Hours and attendance status have been updated.');
-      // Reset the form
       setSelectedEventId('');
+      setSelectedEventName('');
       setRegisteredUsers([]);
       setAttendance({});
       setHoursAlloted(0);

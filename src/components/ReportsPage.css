@@ -1,0 +1,70 @@
+/* src/ReportsPage.css */
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .select-event {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .select-event select {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .report {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .report-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .question p {
+    font-weight: bold;
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .bar-chart {
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .pie-chart-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .pie-chart {
+    width: 60%;
+    max-width: 350px;
+    margin: auto;
+  }
+  
+  .no-reports {
+    text-align: center;
+  }
+  

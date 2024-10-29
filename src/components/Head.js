@@ -84,6 +84,12 @@ function Head() {
                 <a className="nav-link active" href="/events">Event Planning</a>
               </li>
               <li className="nav-item">
+                <a className="nav-link active" href="/report">Report</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" href="/report-page">Report-page</a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link active" href="/response">Give response</a>
               </li>
               <li className="nav-item">

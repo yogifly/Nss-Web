@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, query, addDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Your firebase configuration
 import './ResponseForm.css'; // Import your CSS file for styling
+import { doc, setDoc } from 'firebase/firestore';
 
 const ResponseForm = () => {
   const [events, setEvents] = useState([]);
@@ -46,25 +47,62 @@ const ResponseForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Check if all questions have been answered
+  
+    // Prompt the user to enter their name for `feedbackId`
+    const fullname = localStorage.getItem('fullname'); // Assuming 'userName' is the key used to store the name
+  if (!fullname) {
+    alert("Name is required to submit responses.");
+    return;
+  }
+  
+    // Validate responses
     if (selectedEvent && Object.keys(responses).length === questions.length) {
       try {
-        const responseRef = collection(db, 'events', selectedEvent, 'feedback', 'responses');
-        await addDoc(responseRef, { responses });
-        alert('Responses submitted successfully!');
-        
-        // Reset the form after successful submission
+        const feedbackRef = collection(db, 'events', selectedEvent, 'feedback');
+        const feedbackQuerySnapshot = await getDocs(feedbackRef);
+  
+        // Loop through feedback documents to find the specific feedback ID
+        let feedbackId = null;
+        feedbackQuerySnapshot.forEach((doc) => {
+          const feedbackData = doc.data();
+          if (feedbackData && feedbackData.questions) {
+            feedbackId = doc.id; // assuming one feedback document per event
+          }
+        });
+  
+        if (!feedbackId) {
+          alert("Feedback not found for the selected event.");
+          return;
+        }
+  
+        // Create answers object with question index as keys
+        const answers = {};
+        Object.keys(responses).forEach(index => {
+          answers[index] = parseInt(responses[index]);
+        });
+  
+        // Update or create document with user's name as feedback ID
+        const userFeedbackRef = doc(db, 'events', selectedEvent, 'feedback', feedbackId);
+        await setDoc(
+          userFeedbackRef,
+          { answers: { [fullname]: answers } },
+          { merge: true }
+        );
+  
+        alert("Responses submitted successfully!");
+  
+        // Reset form after successful submission
         setResponses({});
-        setSelectedEvent(''); // Reset selected event
+        setSelectedEvent('');
       } catch (error) {
-        console.error('Error submitting responses:', error);
-        alert('Failed to submit responses. Please try again.');
+        console.error("Error submitting responses:", error);
+        alert("Failed to submit responses. Please try again.");
       }
     } else {
-      alert('Please complete all questions before submitting.');
+      alert("Please complete all questions before submitting.");
     }
-  };
+  };  
+  
 
   return (
     <div className="response-form-container">
