@@ -3,6 +3,8 @@ import { collection, getDocs, query, addDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Your firebase configuration
 import './ResponseForm.css'; // Import your CSS file for styling
 import { doc, setDoc } from 'firebase/firestore';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
+
 
 const ResponseForm = () => {
   const [events, setEvents] = useState([]);
@@ -105,53 +107,124 @@ const ResponseForm = () => {
   
 
   return (
-    <div className="response-form-container">
-      <h2>Response Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label htmlFor="event">Select Event:</label>
-          <select
-            id="event"
-            value={selectedEvent}
-            onChange={(e) => setSelectedEvent(e.target.value)}
-            required
-          >
-            <option value="">--Select an Event--</option>
-            {events.map((event) => (
-              <option key={event.id} value={event.id}>
-                {event.name} {/* Assuming the event has a 'name' field */}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {questions.length > 0 && questions.map((question, index) => (
-          <div key={index} className="question-group">
-            <label>{question}</label>
-            <div className="rating-slider-container">
-              <div
-                className="filled"
-                style={{
-                  width: responses[index] ? `${responses[index] * 20}%` : '0%', // 20% for each point (1-5)
-                }}
-              />
-              <input
-                type="range"
-                min="1"
-                max="5"
-                className="rating-slider"
-                value={responses[index] || 1}
-                onChange={(e) => handleInputChange(index, e.target.value)}
-                style={{ cursor: 'pointer' }} // Added cursor style for better UX
-              />
-            </div>
-            <div className="rating-value">{responses[index] || 1}</div>
-          </div>
+<div className="response-form-container" style={{
+  maxWidth: '500px', // Set a maximum width for the form
+  margin: '0 auto',
+  padding: '20px',
+  border: '1px solid #ddd',
+  borderRadius: '8px',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+  backgroundColor: '#f9f9f9',
+  fontFamily: 'Arial, sans-serif',
+}}>
+  <h2 style={{
+    textAlign: 'center',
+    color: '#333',
+    marginBottom: '20px',
+  }}>Response Form</h2>
+  
+  <form onSubmit={handleSubmit} style={{
+    display: 'flex',
+    flexDirection: 'column',
+  }}>
+    <div className="input-group" style={{ marginBottom: '15px' }}>
+      <label htmlFor="event" style={{
+        display: 'block',
+        marginBottom: '5px',
+        fontWeight: 'bold',
+        color: '#555',
+      }}>Select Event:</label>
+      
+      <select
+        id="event"
+        value={selectedEvent}
+        onChange={(e) => setSelectedEvent(e.target.value)}
+        required
+        style={{
+          width: '100%',
+          padding: '10px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          fontSize: '16px',
+        }}
+      >
+        <option value="">--Select an Event--</option>
+        {events.map((event) => (
+          <option key={event.id} value={event.id}>
+            {event.name} {/* Assuming the event has a 'name' field */}
+          </option>
         ))}
-
-        <button type="submit" className="submit-button">Submit Responses</button>
-      </form>
+      </select>
     </div>
+
+    {questions.length > 0 && questions.map((question, index) => (
+      <div key={index} className="question-group" style={{ marginBottom: '20px' }}>
+        <label style={{
+          display: 'block',
+          marginBottom: '5px',
+          fontWeight: 'bold',
+          color: '#555',
+        }}>{question}</label>
+        
+        <div className="rating-slider-container" style={{
+          position: 'relative',
+          height: '30px',
+        }}>
+          <div
+            className="filled"
+            style={{
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              height: '100%',
+              backgroundColor: '#4caf50', // Green color for filled part
+              transition: 'width 0.3s',
+              width: responses[index] ? `${responses[index] * 20}%` : '0%', // 20% for each point (1-5)
+              borderRadius: '4px 0 0 4px',
+            }}
+          />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            className="rating-slider"
+            value={responses[index] || 1}
+            onChange={(e) => handleInputChange(index, e.target.value)}
+            style={{
+              width: '100%',
+              cursor: 'pointer',
+              appearance: 'none',
+              height: '5px',
+              background: '#ddd',
+              borderRadius: '5px',
+              outline: 'none',
+            }}
+          />
+        </div>
+        <div className="rating-value" style={{
+          textAlign: 'center',
+          fontSize: '18px',
+          color: '#333',
+          marginTop: '5px',
+        }}>{responses[index] || 1}</div>
+      </div>
+    ))}
+
+    <button type="submit" className="submit-button" style={{
+      padding: '10px 20px',
+      fontSize: '16px',
+      backgroundColor: '#007bff',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s',
+      width: '100%', // Ensure the button is full width
+      marginTop: '10px', // Add space above the button
+    }}>Submit Responses</button>
+  </form>
+</div>
+
   );
 };
 
