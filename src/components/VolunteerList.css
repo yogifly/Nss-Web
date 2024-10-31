@@ -1,76 +1,147 @@
-/* src/components/VolunteerList.css */
-
+/* Volunteer List Container */
 .volunteer-list-container {
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-  }
-  
-  .volunteer-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .volunteer-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .edit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .edit-form input {
-    padding: 8px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-  }
-  
-  .button-group {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .button-group .btn {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .btn-save {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .btn-cancel {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .btn-edit {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .btn-delete {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .btn-save:hover,
-  .btn-cancel:hover,
-  .btn-edit:hover,
-  .btn-delete:hover {
-    opacity: 0.9;
-  }
-  
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #800000; /* NSS theme border */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+.volunteer-list-header {
+  color: #800000;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* Add All Volunteers Button */
+.btn-add-all {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #800000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-add-all:hover {
+  background-color: #600000;
+}
+
+/* Volunteer List */
+.volunteer-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.volunteer-item {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.volunteer-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.volunteer-info {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Edit Form */
+.edit-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input-field {
+  flex: 1 1 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Specific Button Styles */
+.btn-save {
+  background-color: #28a745;
+}
+
+.btn-save:hover {
+  background-color: #218838;
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+}
+
+.btn-edit {
+  background-color: #007bff;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Status Messages */
+.status-messages {
+  margin-top: 15px;
+}
+
+.status-message {
+  font-size: 14px;
+  color: #800000;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}

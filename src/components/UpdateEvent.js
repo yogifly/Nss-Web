@@ -95,86 +95,153 @@ const UpdateEvent = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Manage Event</h2>
-
+    <div className="manage-event-container">
+      <h2 className="manage-event-title">Manage Event</h2>
+  
       {/* Select Event */}
-      <label>
+      <label className="manage-event-label">
         Select Event:
-        <select value={selectedEventId} onChange={handleSelectChange} required>
+        <select
+          className="manage-event-select"
+          value={selectedEventId}
+          onChange={handleSelectChange}
+          required
+        >
           <option value="" disabled>Select an event</option>
           {events.map(event => (
             <option key={event.id} value={event.id}>{event.name}</option>
           ))}
         </select>
       </label>
-
+  
       {/* Section 1: Update Event Form */}
-      <div className="section">
-        <h3 className="collapsible-header" onClick={() => setShowUpdateForm(!showUpdateForm)}>
+      <div className="manage-event-section">
+        <h3
+          className="manage-event-collapsible-header"
+          onClick={() => setShowUpdateForm(!showUpdateForm)}
+        >
           Update Event {showUpdateForm ? '▲' : '▼'}
         </h3>
         {showUpdateForm && (
-          <form className="form" onSubmit={handleSubmit}>
-            <label>
+          <form className="manage-event-form" onSubmit={handleSubmit}>
+            <label className="manage-event-form-label">
               Name:
-              <input type="text" name="name" value={eventData.name} onChange={handleChange} required />
+              <input
+                type="text"
+                name="name"
+                value={eventData.name}
+                onChange={handleChange}
+                required
+                className="manage-event-input"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               Description:
-              <textarea name="description" value={eventData.description} onChange={handleChange} required />
+              <textarea
+                name="description"
+                value={eventData.description}
+                onChange={handleChange}
+                required
+                className="manage-event-textarea"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               Hours Alloted:
-              <input type="number" name="hoursAlloted" value={eventData.hoursAlloted} onChange={handleChange} required />
+              <input
+                type="number"
+                name="hoursAlloted"
+                value={eventData.hoursAlloted}
+                onChange={handleChange}
+                required
+                className="manage-event-input"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               Date:
-              <input type="date" name="date" value={eventData.date} onChange={handleChange} required />
+              <input
+                type="date"
+                name="date"
+                value={eventData.date}
+                onChange={handleChange}
+                required
+                className="manage-event-input"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               Reporting Time:
-              <input type="time" name="reportingTime" value={eventData.reportingTime} onChange={handleChange} required />
+              <input
+                type="time"
+                name="reportingTime"
+                value={eventData.reportingTime}
+                onChange={handleChange}
+                required
+                className="manage-event-input"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               Rules:
-              <textarea name="rules" value={eventData.rules} onChange={handleChange} required />
+              <textarea
+                name="rules"
+                value={eventData.rules}
+                onChange={handleChange}
+                required
+                className="manage-event-textarea"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               WhatsApp Link:
-              <input type="url" name="whatsappLink" value={eventData.whatsappLink} onChange={handleChange} required />
+              <input
+                type="url"
+                name="whatsappLink"
+                value={eventData.whatsappLink}
+                onChange={handleChange}
+                required
+                className="manage-event-input"
+              />
             </label>
-            <label>
+            <label className="manage-event-form-label">
               Limit:
-              <input type="number" name="limit" value={eventData.limit} onChange={handleChange} required />
+              <input
+                type="number"
+                name="limit"
+                value={eventData.limit}
+                onChange={handleChange}
+                required
+                className="manage-event-input"
+              />
             </label>
-            <button type="submit" className="button">Update</button>
+            <button type="submit" className="manage-event-button">Update</button>
           </form>
         )}
       </div>
-
+  
       {/* Section 2: Registered Volunteers */}
-      <div className="section">
-        <h3 className="collapsible-header" onClick={() => setShowVolunteers(!showVolunteers)}>
+      <div className="manage-event-section">
+        <h3
+          className="manage-event-collapsible-header"
+          onClick={() => setShowVolunteers(!showVolunteers)}
+        >
           Registered Volunteers {showVolunteers ? '▲' : '▼'}
         </h3>
         {showVolunteers && (
-          <div className="registrations-list">
-            <h3>Registered Volunteers</h3>
+          <div className="manage-event-registrations-list">
+            <h3 className="manage-event-volunteers-title">Registered Volunteers</h3>
             {registrations.length > 0 ? (
-              <ul>
+              <ul className="manage-event-volunteers-list">
                 {registrations.map((volunteer, index) => (
-                  <li key={index}>{volunteer.fullname}</li> // Displaying the full name of registered volunteers
+                  <li key={index} className="manage-event-volunteer-item">
+                    {volunteer.fullname}
+                  </li>
                 ))}
               </ul>
             ) : (
-              <p>No volunteers have registered for this event yet.</p>
+              <p className="manage-event-no-volunteers">No volunteers have registered for this event yet.</p>
             )}
           </div>
         )}
       </div>
     </div>
   );
-};
+};  
 
 export default UpdateEvent;

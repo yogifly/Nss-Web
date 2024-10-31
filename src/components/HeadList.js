@@ -59,31 +59,31 @@ const HeadList = () => {
   };
 
   return (
-    <div className="head-list-container">
-      <h1>List of Heads</h1>
-      {heads.length > 0 ? (
-        <ul className="head-list">
-          {heads.map((head) => (
-            <li key={head.id} className="head-item">
-              <h2 style={{ color: 'blue', fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' }}>
-                {head.fullname}
-              </h2> {/* Display fullname with inline CSS */}
-              <p>ID: {head.pid}</p>
-              <p>Email: {head.email}</p>
-              {/* Add button for each head to add credentials to Firebase Authentication */}
-              <button
-                onClick={() => addHeadToAuth(head.email, head.pid)} // Use pid as the password
-                className="add-to-auth-btn"
-              >
-                Add to Auth
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No heads found.</p>
-      )}
-    </div>
+    <div className="nss-head-list-container">
+  <h1 className="nss-head-list-title">List of Heads</h1>
+  {heads.length > 0 ? (
+    <ul className="nss-head-list">
+      {heads.map((head) => (
+        <li key={head.id} className="nss-head-item">
+          <h2 className="nss-head-fullname">
+            {head.fullname}
+          </h2>
+          <p className="nss-head-id">ID: {head.pid}</p>
+          <p className="nss-head-email">Email: {head.email}</p>
+          <button
+            onClick={() => addHeadToAuth(head.email, head.pid)} // Use pid as the password
+            className="nss-add-to-auth-btn"
+          >
+            Add to Auth
+          </button>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p className="nss-no-heads-message">No heads found.</p>
+  )}
+</div>
+
   );
 };
 

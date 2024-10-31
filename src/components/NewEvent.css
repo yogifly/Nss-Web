@@ -1,84 +1,84 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form label {
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .form input,
-  .form textarea {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .form input[type="text"],
-  .form input[type="number"],
-  .form input[type="date"],
-  .form input[type="time"],
-  .form input[type="url"],
-  .form textarea {
-    width: 100%;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-  }
-  
-  .form textarea {
-    height: 100px;
-  }
-  
-  .button {
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .button:hover {
-    background-color: #45a049;
-  }
-  
-  @media (max-width: 600px) {
-    .container {
-      padding: 10px;
-    }
-  
-    .form input,
-    .form textarea {
-      font-size: 12px;
-    }
-  
-    .button {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
+/* EventForm.css */
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.event-container {
+  width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #F0F4FA;
+  border-radius: 10px;
+  border-top: 5px solid #133E87;
+  border-bottom: 5px solid #133E87;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.event-title {
+  color: #133E87;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-label {
+  display: block;
+  text-align: left;
+  color: #1A1A19;
+  font-weight: 400;
+}
+
+.event-input, .event-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid #BFECFF;
+  border-radius: 8px;
+  background-color: #E5ECF4;
+  color: #133E87;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.event-input:focus, .event-textarea:focus {
+  border: 1px solid #133E87;
+}
+
+.event-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.event-button {
+  width: 100%;
+  padding: 12px;
+  background: #DA2E2E;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.event-button:hover {
+  background: #B72828;
+}
+
+.event-button:active {
+  background: #9B2121;
+}

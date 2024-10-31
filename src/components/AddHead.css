@@ -1,53 +1,108 @@
-/* AddHead.css */
-
+/* Form Container */
 .form-container {
-    max-width: 400px;          /* Set a max-width for the form */
-    margin: 20px auto;        /* Center the form */
-    padding: 20px;            /* Add padding */
-    border: 1px solid #ccc;   /* Add a light border */
-    border-radius: 8px;       /* Round the corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    background-color: #fff;   /* White background */
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-container:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Header */
+.form-header {
+  color: #800000;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #800000;
+  padding-bottom: 10px;
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #800000;
+  box-shadow: 0 0 6px rgba(128, 0, 0, 0.2);
+  outline: none;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #800000;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #600000;
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  background-color: #4a0000;
+  transform: translateY(0);
+}
+
+/* Message Styling */
+.message {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+/* Animation for Success/Error Message */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  form {
-    display: flex;            /* Use flexbox for layout */
-    flex-direction: column;   /* Stack items vertically */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  input {
-    margin-bottom: 15px;      /* Add space between input fields */
-    padding: 10px;            /* Add padding inside inputs */
-    border: 1px solid #ccc;   /* Light border for inputs */
-    border-radius: 4px;       /* Round the input corners */
-    font-size: 16px;          /* Font size for inputs */
-  }
-  
-  input:focus {
-    border-color: #007bff;    /* Change border color on focus */
-    outline: none;             /* Remove default outline */
-  }
-  
-  button {
-    padding: 10px;            /* Add padding inside the button */
-    background-color: #007bff; /* Button background color */
-    color: white;             /* Button text color */
-    border: none;             /* Remove border */
-    border-radius: 4px;       /* Round the button corners */
-    font-size: 16px;          /* Font size for button */
-    cursor: pointer;          /* Change cursor on hover */
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .message {
-    margin-top: 20px;         /* Add space above messages */
-    color: #d9534f;           /* Red color for error messages */
-  }
-  
-  .message.success {
-    color: #5cb85c;           /* Green color for success messages */
-  }
-  
+}
+
+.success,
+.error {
+  animation: fadeIn 0.5s ease-in-out;
+}

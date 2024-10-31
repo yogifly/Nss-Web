@@ -108,7 +108,7 @@ const ResponseForm = () => {
 
   return (
 <div className="response-form-container" style={{
-  maxWidth: '500px', // Set a maximum width for the form
+  width: '500px',
   margin: '0 auto',
   padding: '20px',
   border: '1px solid #ddd',

@@ -98,20 +98,20 @@ const EventsList = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Upcoming Events</h2>
-      <div className="events-list">
+    <div className="nss-events-container">
+      <h2 className="nss-events-header">Upcoming Events</h2>
+      <div className="nss-events-list">
         {events.map(event => (
-          <div key={event.id} className="event-item" onClick={() => handleEventClick(event)}>
-            <h3>{event.name}</h3>
-            <p>{event.description}</p>
+          <div key={event.id} className="nss-event-item" onClick={() => handleEventClick(event)}>
+            <h3 className="nss-event-name">{event.name}</h3>
+            <p className="nss-event-description">{event.description}</p>
           </div>
         ))}
       </div>
-
+  
       {selectedEvent && (
-        <div className="event-details">
-          <h3>{selectedEvent.name}</h3>
+        <div className="nss-event-details">
+          <h3 className="nss-selected-event-name">{selectedEvent.name}</h3>
           <p><strong>Description:</strong> {selectedEvent.description}</p>
           <p><strong>Hours Allotted:</strong> {selectedEvent.hoursAlloted}</p>
           <p><strong>Date:</strong> {selectedEvent.date}</p>
@@ -120,12 +120,12 @@ const EventsList = () => {
           <p><strong>WhatsApp Link:</strong> <a href={selectedEvent.whatsappLink} target="_blank" rel="noopener noreferrer">{selectedEvent.whatsappLink}</a></p>
           <p><strong>Limit:</strong> {selectedEvent.limit}</p>
           <p><strong>Current Registrations:</strong> {selectedEvent.registrations?.length || 0}</p> {/* Show the current registrations */}
-
-          <button onClick={handleRegister} className="button">Register for Event</button>
+  
+          <button onClick={handleRegister} className="nss-register-button">Register for Event</button>
         </div>
       )}
     </div>
   );
-};
+};  
 
 export default EventsList;
