@@ -59,54 +59,84 @@ function Head() {
   return (
     <div>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">Heads Dashboard</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
+      <nav className="navbar navbar-expand-lg navbar-black bg-black fixed-top">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="#">Heads Dashboard</a>
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
 
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link active" href="/head/manage-volunteers">Manage Volunteers</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/volunteers/events">Events</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/head/add-volunteer">Add Volunteer</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/head/upload-photos">Add Photos</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/events">Event Planning</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/report">Report</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/report-page">Report-page</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/response">Give response</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/profile">profile</a>
-              </li>
-              <li className="nav-item">
-                <span className="navbar-text me-2">Welcome, {fullname}</span> {/* Display fullname */}
-              </li>
-              
-              
-              <li className="nav-item">
-                <button onClick={handleLogout} className="btn btn-outline-light">Logout</button> {/* Logout button */}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav ms-auto">
+        {/* Management Dropdown */}
+        <li className="nav-item dropdown">
+          <a
+            className="nav-link dropdown-toggle active"
+            href="#"
+            id="managementDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Management
+          </a>
+          <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="managementDropdown">
+            <li>
+              <a className="dropdown-item" href="/head/manage-volunteers">Manage Volunteers</a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="/head/add-volunteer">Add Volunteer</a>
+            </li>
+          </ul>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link active" href="/volunteers/events">Register for Event</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="/events">Event Planning</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="/report-page">Analysis</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="/response">Feedback</a>
+        </li>
+
+        {/* Profile Dropdown */}
+        <li className="nav-item dropdown">
+          <a
+            className="nav-link dropdown-toggle"
+            href="#"
+            id="profileDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Welcome, {fullname}
+          </a>
+          <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="profileDropdown">
+            <li>
+              <a className="dropdown-item" href="/profile">Profile</a>
+            </li>
+            <li>
+              <button onClick={handleLogout} className="dropdown-item">Logout</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
       {/* Content */}
       <div className="content" style={{ marginTop: '100px' }}>

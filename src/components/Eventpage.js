@@ -15,8 +15,14 @@ const EventPage = () => {
         <Link to="/feedback" style={styles.link}>
           <button style={styles.button}>Add Feedback From</button>
         </Link>
-        <Link to="/attendance" style={styles.link}>
-          <button style={styles.button}>Add Attendance</button>
+        <Link to="/feedback" style={styles.link}>
+          <button style={styles.button}>Add Feedback From</button>
+        </Link>
+        <Link to="/head/upload-photos" style={styles.link}>
+          <button style={styles.button}>Update Gallery</button>
+        </Link>
+        <Link to="/report" style={styles.link}>
+          <button style={styles.button}>Generate Report</button>
         </Link>
       </div>
     </div>

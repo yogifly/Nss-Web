@@ -61,7 +61,7 @@ function Home() {
       </nav>
 
       <header className="header">
-        <h2>Welcome to MyApp</h2>
+        <h2>Welcome to NSS app</h2>
         <p>Your one-stop solution for all things tech!</p>
       </header>
     </div>
