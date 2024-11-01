@@ -1,70 +1,145 @@
-/* src/ReportsPage.css */
+* Container Styling */
+.nss-report-container {
+  width: 800px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  border: 2px solid #800000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
 
-.container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .select-event {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .select-event select {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .report {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .report-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .question {
-    margin-bottom: 20px;
-  }
-  
-  .question p {
-    font-weight: bold;
-  }
-  
-  .chart-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .bar-chart {
-    width: 80%;
-    max-width: 600px;
-  }
-  
-  .pie-chart-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .pie-chart {
-    width: 60%;
-    max-width: 350px;
-    margin: auto;
-  }
-  
-  .no-reports {
-    text-align: center;
-  }
-  
+/* Header Styling */
+.nss-report-header {
+  font-size: 2rem;
+  color: #800000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Two-Column Layout */
+.nss-report-columns {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left and Right Column Styling */
+.nss-left-column, .nss-right-column {
+  flex: 1;
+}
+
+/* Event Selection Dropdown */
+.nss-select-event {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nss-event-dropdown {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #800000;
+  border-radius: 4px;
+  width: 80%;
+  max-width: 400px;
+  color: #333;
+}
+
+/* No Reports Message */
+.nss-no-reports {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Question Styling */
+.nss-question {
+  margin-bottom: 20px;
+}
+
+.nss-question-text {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Chart Container Styling */
+.nss-bar-chart, .nss-pie-chart {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Pie Chart Container */
+.nss-pie-chart-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.nss-pie-chart-title {
+  font-size: 1.4rem;
+  color: #006400;
+  margin-bottom: 10px;
+}
+
+/* Download Button Styling */
+.nss-download-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #800000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nss-download-button:hover {
+  background-color: #660000;
+}
+
+.nss-report-container {
+  padding: 20px; /* Adjust padding as needed */
+  max-width: 1200px; /* Set a max width for desktop view */
+  margin: 0 auto; /* Center the container */
+}
+
+.nss-report-columns {
+  display: flex; /* Use flexbox for the layout */
+  flex-direction: row; /* Row direction for columns */
+  overflow: hidden; /* Prevent overflow from the container */
+}
+
+.nss-left-column,
+.nss-right-column {
+  flex: 1; /* Each column takes up equal space */
+  margin: 10px; /* Add some margin between columns */
+  max-height: 600px; /* Set a max height for the columns */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Specific styles for the scrollbar (optional, for better visibility) */
+.nss-left-column::-webkit-scrollbar,
+.nss-right-column::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.nss-left-column::-webkit-scrollbar-thumb,
+.nss-right-column::-webkit-scrollbar-thumb {
+  background: rgba(133, 133, 133, 0.6); /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+}
+
+.nss-left-column::-webkit-scrollbar-thumb:hover,
+.nss-right-column::-webkit-scrollbar-thumb:hover {
+  background: rgb(196, 196, 196); /* Darker color on hover */
+}
+
+.nss-no-reports {
+  text-align: center; /* Center no reports message */
+  color: #999; /* Light color for no reports message */
+}

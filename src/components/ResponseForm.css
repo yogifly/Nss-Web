@@ -1,120 +1,424 @@
-/* Overall container styling */
+
 .response-form-container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #e0e0e0; /* Lighter border for a clean look */
-    border-radius: 8px;
-    background-color: #ffffff; /* White background for contrast */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 12px;
+   /* Subtle gradient */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.3s ease-in-out;
+}
+
+.response-form-container:hover {
+  transform: scale(1.02); /* Slight scaling on hover for focus */
+}
+
+/* Heading styling */
+h2 {
+  text-align: center;
+  color: #007bff; /* Use primary theme color */
+  font-size: 24px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Input group styling */
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  display: block;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.input-group select {
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-group select:focus {
+  border-color: #007bff;
+}
+
+/* Question group styling */
+.question-group {
+  margin-bottom: 25px;
+}
+
+/* Wrapper for the rating slider */
+.rating-slider-container {
+  position: relative;
+  height: 10px;
+  background: #e6e6e6;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.filled {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, #ff5a5a, #f0b400, #4caf50, #007bff); /* Gradient fill */
+  transition: width 0.3s ease;
+}
+
+/* Range slider styling */
+.rating-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: transparent;
+  outline: none;
+}
+
+.rating-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.rating-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1); /* Larger thumb on hover */
+  background-color: #0056b3;
+}
+
+.rating-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.rating-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+}
+
+/* Display selected rating styling */
+.rating-value {
+  text-align: center;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+/* Button styling */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient background */
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background: linear-gradient(90deg, #0056b3, #003f7f); /* Darker shade on hover */
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
+  transform: translateY(-2px); /* Slightly lifts on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .response-form-container {
+    padding: 20px;
   }
-  
-  /* Heading styling */
+
   h2 {
-    text-align: center;
-    color: #333; /* Darker text for better readability */
-    margin-bottom: 20px;
+    font-size: 20px;
   }
-  
-  /* Input group styling */
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Question group styling */
-  .question-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Wrapper for the rating slider */
-  .rating-slider-container {
-    position: relative; /* For positioning filled background */
-    height: 8px; /* Match height with the slider */
-    background: #e0e0e0; /* Default background for unfilled */
-    border-radius: 5px; /* Rounded edges */
-    overflow: hidden; /* Hide overflow for filled effect */
-  }
-  
-  /* Filled background styling */
-  .filled {
-    position: absolute; /* Position relative to the slider container */
-    height: 100%; /* Full height */
-    background: #007bff; /* Color matching the thumb */
-    transition: width 0.3s; /* Smooth transition for filling effect */
-  }
-  
-  /* Range slider styling */
-  .rating-slider {
-    
-    width: 100%;
-    height: 8px; /* Increased height for better interaction */
-    background: transparent; /* Transparent to see the filled effect */
-    outline: none; /* Remove outline */
-  }
-  
-  .rating-slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove default thumb styling */
-    appearance: none; /* For Firefox */
-    width: 24px; /* Thumb width */
-    height: 24px; /* Thumb height */
-    border-radius: 50%; /* Circular thumb */
-    background: #007bff; /* Thumb color */
-    cursor: pointer; /* Pointer on hover */
-    transition: transform 0.2s; /* Smooth scaling effect */
-  }
-  
-  .rating-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2); /* Slightly enlarge thumb on hover */
-  }
-  
-  .rating-slider::-moz-range-thumb {
-    width: 24px; /* Thumb width for Firefox */
-    height: 24px; /* Thumb height for Firefox */
-    border-radius: 50%; /* Circular thumb */
-    background: #007bff; /* Thumb color */
-    cursor: pointer; /* Pointer on hover */
-    transition: transform 0.2s; /* Smooth scaling effect */
-  }
-  
-  .rating-slider::-moz-range-thumb:hover {
-    transform: scale(1.2); /* Slightly enlarge thumb on hover */
-  }
-  
-  /* Display selected rating styling */
-  .rating-value {
-    text-align: center;
-    font-weight: bold;
-    color: #007bff; /* Color matching the slider thumb */
-    margin-top: 5px;
-  }
-  
-  /* Button styling */
+
   .submit-button {
-    display: block;
-    width: 100%; /* Full width for the button */
-    padding: 12px;
-    border: none;
-    background-color: #007bff; /* Primary button color */
-    color: white;
     font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition for background color */
   }
+}
+
+/* Container for the entire form */
+.response-form-container {
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+/* ResponseForm.css */
+
+.response-form-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  width: 80%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  border-right: 4px solid #a7d4f0; /* Border on the left side */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.response-form-container:hover {
+  transform: translateY(-5px); /* Brings it up for 3D effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.input-group,
+.question-group {
+  margin-bottom: 20px;
+}
+
+.input-group label,
+.question-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+select,
+.rating-slider {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.rating-slider-container {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.rating-slider-container .filled {
+  height: 100%;
+  background-color: #4CAF50; /* Color for the rating fill */
+}
+
+.rating-value {
+  margin-top: 5px;
+  font-weight: 500;
+  color: #4CAF50; /* Color of the rating text */
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #aac2ed;
+}
+
+/* Title styling */
+.response-form-container h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input Group for event selection */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.input-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 25px;
+  color: #333;
+  outline: none;
+}
+
+/* Question Group */
+.question-group {
+  margin-bottom: 20px;
+}
+
+.question-group label {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Rating Slider Container */
+.rating-slider-container {
+  position: relative;
+  height: 8px;
+  background: #e6e9ec;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.rating-slider-container .filled {
+  height: 100%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: width 0.3s;
+}
+
+/* Rating Slider Input */
+.rating-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: transparent;
+  outline: none;
+}
+
+.rating-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0072ff;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rating-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0072ff;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Rating Value Display */
+.rating-value {
+  font-size: 14px;
+  color: #555;
+  text-align: right;
+}
+
+/* Submit Button */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0072ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #005bb5;
+}
+/* Apply "Poppins" to the entire form */
+.response-form-container {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 40px;
   
-  .submit-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-  }
-  
-  /* Responsive styling */
-  @media (max-width: 768px) {
-    .response-form-container {
-      padding: 20px; /* Reduced padding for smaller screens */
-    }
-  
-    .submit-button {
-      font-size: 14px; /* Smaller font size on smaller screens */
-    }
-  }
-  
+  background: linear-gradient(145deg, #d3eef9, #f0f0f0);
+  border-radius: 20px;
+}
+
+/* You can also set a specific weight for headings and buttons if you want */
+.response-form-container h2 {
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.submit-button {
+  font-weight: 500;
+}
+/* Wrapper for all chart containers to align them in a single row */
+.feedback-display{
+  display: flex;
+  flex-wrap: nowrap; /* Prevents charts from wrapping onto a new line */
+  overflow-x: auto; /* Enables horizontal scrolling if charts exceed viewport width */
+  gap: 20px; /* Space between each chart container */
+  padding-bottom: 10px; /* Adds space below for the scrollbar */
+}
+
+/* Styling for individual chart containers */
+.chart-container {
+  flex: 0 0 auto; /* Prevents shrinking and keeps each container width fixed */
+  min-width: 250px; /* Minimum width for each chart container */
+  max-width: 400px; /* Maximum width for each chart container */
+  padding: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

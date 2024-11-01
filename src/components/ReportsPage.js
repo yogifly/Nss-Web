@@ -1,8 +1,9 @@
-// src/ReportsPage.js
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { Bar, Pie } from 'react-chartjs-2';
+import { saveAs } from 'file-saver';
+import html2canvas from 'html2canvas';
 import './ReportsPage.css'; // Import the CSS file
 
 const ReportsPage = () => {
@@ -27,6 +28,7 @@ const ReportsPage = () => {
   const filteredReports = selectedEvent 
     ? reports.filter(report => report.eventName === selectedEvent) 
     : [];
+
 
   const getBarChartData = (feedbackData, questionIndex) => {
     const questionFeedback = feedbackData.map(feedback => feedback.answers);
@@ -72,6 +74,8 @@ const ReportsPage = () => {
       });
     });
 
+
+    
     return {
       labels: ['Worst', 'Neutral', 'Good'],
       datasets: [
@@ -86,52 +90,81 @@ const ReportsPage = () => {
     };
   };
 
+  const downloadReportAsImage = async () => {
+    const element = document.querySelector('.nss-report-container');
+    if (element) {
+      const canvas = await html2canvas(element);
+      const dataUrl = canvas.toDataURL('image/png');
+      saveAs(dataUrl, 'report.png');
+    }
+  };
+
   return (
-    <div className="container">
-      <h2 className="header">Saved Reports</h2>
-
-      {/* Event Selection Dropdown */}
-      <div className="select-event">
-        <select
-          value={selectedEvent}
-          onChange={(e) => setSelectedEvent(e.target.value)}
-        >
-          <option value="">Select an Event</option>
-          {eventNames.map((eventName, index) => (
-            <option key={index} value={eventName}>
-              {eventName}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {filteredReports.length === 0 ? (
-        <p className="no-reports">No reports available for this event.</p>
-      ) : (
-        filteredReports.map((report, index) => (
-          <div key={index} className="report">
-            <h3 className="report-title">Report for {report.eventName}</h3>
-
-            {report.feedbackData[0].questions.map((question, qIndex) => (
-              <div key={qIndex} className="question">
-                <p>Q{qIndex + 1}: {question}</p>
-                <div className="chart-container">
-                  <div className="bar-chart">
-                    <Bar data={getBarChartData(report.feedbackData, qIndex)} options={{ responsive: true, plugins: { legend: { position: 'top' } } }} />
-                  </div>
+    <div className="nss-report-container">
+      <h2 className="nss-report-header">Saved Reports</h2>
+  
+      <div className="nss-report-columns">
+        {/* Left Column: Event Selection and Pie Chart */}
+        <div className="nss-left-column">
+          {/* Event Selection Dropdown */}
+          <div className="nss-select-event">
+            <select
+              className="nss-event-dropdown"
+              value={selectedEvent}
+              onChange={(e) => setSelectedEvent(e.target.value)}
+            >
+              <option value="">Select an Event</option>
+              {eventNames.map((eventName, index) => (
+                <option key={index} value={eventName}>
+                  {eventName}
+                </option>
+              ))}
+            </select>
+          </div>
+  
+          {filteredReports.length === 0 ? (
+            <p className="nss-no-reports">No reports available for this event.</p>
+          ) : (
+            <div className="nss-pie-chart-container">
+              <h3 className="nss-pie-chart-title">Overall Sentiment Analysis</h3>
+              <Pie
+                data={getPieChartData(filteredReports[0].feedbackData)}
+                options={{
+                  responsive: true,
+                  plugins: { legend: { position: 'top' } },
+                }}
+              />
+            </div>
+          )}
+  
+          {/* Download Button */}
+          <button className="nss-download-button" onClick={downloadReportAsImage}>
+            Download Report as Image
+          </button>
+        </div>
+  
+        {/* Right Column: Bar Charts */}
+        <div className="nss-right-column">
+          {filteredReports.length > 0 && (
+            filteredReports[0].feedbackData[0].questions.map((question, qIndex) => (
+              <div key={qIndex} className="nss-question">
+                <p className="nss-question-text">
+                  Q{qIndex + 1}: {question}
+                </p>
+                <div className="nss-bar-chart">
+                  <Bar
+                    data={getBarChartData(filteredReports[0].feedbackData, qIndex)}
+                    options={{
+                      responsive: true,
+                      plugins: { legend: { position: 'top' } },
+                    }}
+                  />
                 </div>
               </div>
-            ))}
-
-            <div className="pie-chart-container">
-              <div className="pie-chart">
-                <h3 style={{ textAlign: 'center' }}>Overall Sentiment Analysis</h3>
-                <Pie data={getPieChartData(report.feedbackData)} options={{ responsive: true, plugins: { legend: { position: 'top' } } }} />
-              </div>
-            </div>
-          </div>
-        ))
-      )}
+            ))
+          )}
+        </div>
+      </div>
     </div>
   );
 };

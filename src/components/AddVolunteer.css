@@ -26,17 +26,18 @@ input, button, select, textarea {
 .modal {
   width: 90%;
   max-width: 500px;
-  margin: 10vh auto;
+  margin: 1vh auto;
   background-color: #FFF;
   border-radius: .5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+  margin-top: 10px;
 }
 
 .modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1.5rem 1.5rem 1rem;
+  
 }
 
 .logo-circle {

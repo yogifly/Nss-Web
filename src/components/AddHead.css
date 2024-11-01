@@ -16,7 +16,7 @@
   }
   
   input {
-    margin-bottom: 15px;      /* Add space between input fields */
+    margin-bottom: 5px;      /* Add space between input fields */
     padding: 10px;            /* Add padding inside inputs */
     border: 1px solid #ccc;   /* Light border for inputs */
     border-radius: 4px;       /* Round the input corners */

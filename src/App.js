@@ -24,6 +24,8 @@ import FeedbackForm from './components/FeedbackForm';
 import ResponseForm from './components/ResponseForm';
 import FeedbackReport from './components/FeedbackReport';
 import ReportsPage from './components/ReportsPage';
+import Sidebar from './components/Sidebar';
+import Main from './components/Main';
 const App = () => {
   return (
     <Router>
@@ -51,7 +53,8 @@ const App = () => {
         <Route path="/response" element={<ResponseForm />} />
         <Route path="/report" element={<FeedbackReport />} />
         <Route path="/report-page" element={<ReportsPage />} />
-
+        <Route path="/sidebar" element={<Sidebar />} />
+        <Route path="/main" element={<Main />} />
       </Routes>
     </Router>
   );

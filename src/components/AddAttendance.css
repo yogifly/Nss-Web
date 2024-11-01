@@ -3,7 +3,7 @@
 .attendance-container {
   max-width: 800px;
   margin: 50px auto;
-  padding: 20px;
+  
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@
 
 .attendance-container select {
   width: 100%;
-  padding: 10px;
+  
   font-size: 16px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -42,9 +42,8 @@
 
 .volunteer-checkbox {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+  align-items: center; /* Align items vertically in the center */
+  
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -53,15 +52,41 @@
 }
 
 .volunteer-checkbox label {
+  padding-right: 350px;
   font-size: 16px;
   font-weight: 400;
   color: #333;
   cursor: pointer;
+  margin-left: 10px; /* Create gap between checkbox and label */
 }
 
 .volunteer-checkbox input[type="checkbox"] {
+  appearance: none; /* Remove default checkbox styling */
   width: 18px;
   height: 18px;
+  border-radius: 4px; /* Rounded corners */
+  border: 2px solid #ccc; /* Default border */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Change cursor on hover */
+  position: relative; /* Position for the pseudo-element */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions */
+}
+
+.volunteer-checkbox input[type="checkbox"]:checked {
+  background-color: green; /* Green background when checked */
+  border-color: green; /* Green border when checked */
+}
+
+.volunteer-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px; /* Adjust position for checkmark */
+  top: 1px; /* Adjust position for checkmark */
+  width: 6px; /* Width of the checkmark */
+  height: 12px; /* Height of the checkmark */
+  border: solid white; /* Color of the checkmark */
+  border-width: 0 2px 2px 0; /* Create the checkmark shape */
+  transform: rotate(45deg); /* Rotate to create the tick */
 }
 
 .volunteer-checkbox:hover {
@@ -99,6 +124,7 @@
   }
 
   .volunteer-checkbox label {
+    padding-right: 350px;
     font-size: 14px;
   }
 
@@ -106,4 +132,154 @@
     font-size: 16px;
     padding: 10px;
   }
+}
+/* AddAttendance.css */
+
+.attendance-container {
+  width: 700px;
+  margin: 50px auto;
+  padding: 30px; /* Increased padding for better spacing */
+  background-color: #ffffff; /* Changed to white for better contrast */
+  border-radius: 10px; /* Slightly increased border radius */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  font-family: 'Arial', sans-serif;
+}
+
+.attendance-container h2 {
+  text-align: center;
+  font-size: 30px; /* Increased font size */
+  color: #0056b3; /* Changed color to match button */
+  margin-bottom: 25px; /* Adjusted margin for spacing */
+  border-bottom: 2px solid #007bff; /* Added a bottom border for emphasis */
+  padding-bottom: 10px; /* Added padding for aesthetics */
+}
+
+.attendance-container label {
+  display: block;
+  font-size: 20px; /* Increased font size */
+  font-weight: 600; /* Made font bolder */
+  color: #333;
+
+}
+
+.attendance-container select {
+  width: 100%;
+  padding: 12px; /* Increased padding for a better touch target */
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 25px; /* Adjusted margin for spacing */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Added box shadow transition */
+}
+
+.attendance-container select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Added a focus shadow */
+}
+
+.volunteer-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+   /* Increased padding for better spacing */
+  background-color: #dceef4; /* Changed to a light grey for better visibility */
+  border: 1px solid #1c10f1;
+  border-radius: 14px;
+  margin-bottom: 12px; /* Adjusted margin for spacing */
+  transition: background-color 0.3s, border-color 0.3s; /* Added transition for hover effects */
+}
+
+.volunteer-checkbox label {
+  font-size: 16px;
+  font-weight: 500; /* Made font slightly bolder */
+  color: #333;
+  cursor: pointer;
+}
+
+.attendance-checkbox-label input {
+  width: 20%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.volunteer-checkbox input[type="checkbox"] {
+  width: 20px; /* Increased checkbox size for better visibility */
+  height: 20px;
+}
+
+.volunteer-checkbox:hover {
+  background-color: #eaeaea; /* Changed hover color for better visibility */
+  border-color: #007bff; /* Added border color on hover */
+}
+
+.attendance-submit-button button {
+  width: 100%;
+  padding: 15px; /* Increased padding for a better touch target */
+  background-color: #007bff;
+  color: white;
+  font-size: 20px; /* Increased font size */
+  font-weight: 600; /* Made font bolder */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Added lift effect on hover */
+}
+
+.submit-button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .attendance-container {
+    padding: 20px; /* Adjusted padding for smaller screens */
+  }
+
+  .attendance-container h2 {
+    font-size: 26px; /* Adjusted font size for smaller screens */
+  }
+
+  .attendance-container label {
+    font-size: 16px; /* Adjusted font size */
+  }
+
+  .volunteer-checkbox label {
+    font-size: 15px; /* Adjusted font size */
+  }
+
+  .submit-button {
+    font-size: 18px; /* Adjusted font size */
+    padding: 12px; /* Adjusted padding */
+  }
+}
+.attendance-label {
+  display: flex;
+  align-items: center; /* Aligns items vertically center */
+}
+
+.n {
+  display: inline-block;
+  margin-left: 28px; /* Adds some space between the checkbox and the name */
+}
+.checkbox-item {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center align items vertically */
+  margin: 10px 0; /* Space between checkbox items */
+}
+
+input[type="checkbox"] {
+  width: 20px; /* Set width for the checkbox */
+  height: 20px; /* Set height for the checkbox */
+  margin-right: 10px; /* Space between checkbox and label */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.n {
+  font-size: 16px; /* Adjust font size for the name */
+  cursor: pointer; /* Change cursor on hover */
 }

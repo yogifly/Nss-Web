@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Your firebase configuration
 import './FeedbackForm.css'; // Import your CSS file for styling
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons'; // Import the trash icon
 
 const FeedbackForm = () => {
   const [events, setEvents] = useState([]);
@@ -29,6 +31,11 @@ const FeedbackForm = () => {
     setFeedbackQuestions(updatedQuestions);
   };
 
+  const handleDeleteQuestion = (index) => {
+    const updatedQuestions = feedbackQuestions.filter((_, i) => i !== index);
+    setFeedbackQuestions(updatedQuestions);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (selectedEvent) {
@@ -49,42 +56,60 @@ const FeedbackForm = () => {
 
   return (
     <div className="feedback-form-container">
-      <h2>Feedback Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label htmlFor="event">Select Event:</label>
+      <h2 className="feedback-form-title">Feedback Form</h2>
+      <form onSubmit={handleSubmit} className="feedback-form">
+        <div className="feedback-input-group">
+          <label htmlFor="event" className="feedback-label">Select Event:</label>
           <select
             id="event"
             value={selectedEvent}
             onChange={(e) => setSelectedEvent(e.target.value)}
             required
+            className="feedback-select"
           >
             <option value="">--Select an Event--</option>
             {events.map((event) => (
               <option key={event.id} value={event.id}>
-                {event.name} {/* Assuming the event has a 'name' field */}
+                {event.name}
               </option>
             ))}
           </select>
         </div>
 
         {feedbackQuestions.map((question, index) => (
-          <div key={index} className="question-group">
+          <div key={index} className="feedback-question-group">
             <input
               type="text"
               placeholder="Enter your question"
               value={question.question}
               onChange={(e) => handleInputChange(index, e.target.value)}
               required
+              className="feedback-question-input"
             />
+            <button
+              type="button"
+              onClick={() => handleDeleteQuestion(index)}
+              className="feedback-delete-question-button"
+              aria-label="Delete question"
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
           </div>
         ))}
 
-        <button type="button" onClick={handleAddQuestion} className="add-question-button">
-          +
-        </button>
-        
-        <button type="submit" className="submit-button">Submit Feedback From</button>
+        <div className="feedback-button-group">
+          <button
+            type="button"
+            onClick={handleAddQuestion}
+            className="feedback-add-question-button"
+          >
+            + Add Question
+          </button>
+
+          <button type="submit" className="feedback-submit-button">
+            Submit Feedback Form
+          </button>
+        </div>
       </form>
     </div>
   );

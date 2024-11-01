@@ -1,84 +1,263 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Container styling with fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
+}
+
+.ne-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #d3ddf3; /* Changed to white for a clean look */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Header styling */
+.ne-header {
+  text-align: center;
+  font-size: 28px; /* Increased font size for header */
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Form styling */
+.ne-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap for better spacing */
+}
+
+/* Form group styling */
+.ne-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+.ne-label {
+  font-size: 16px;
+  color: #555; /* Darker color for better visibility */
+  margin-bottom: 5px;
+}
+
+/* Input and textarea styling */
+.ne-input,
+.ne-textarea {
+  padding: 12px; /* Increased padding for comfort */
+  font-size: 16px; /* Increased font size for readability */
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Slightly rounded corners */
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+}
+
+.ne-input:focus,
+.ne-textarea:focus {
+  border-color: #007bff; /* Focus border color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow effect */
+}
+
+/* Textarea specific styling */
+.ne-textarea {
+  resize: vertical;
+  min-height: 80px; /* Set minimum height for better usability */
+}
+
+/* Button styling */
+.ne-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.ne-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.ne-button:active {
+  transform: translateY(0); /* Reset lift effect on click */
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+  .ne-container {
+    padding: 15px;
   }
-  
-  .form label {
-    margin-bottom: 10px;
-    font-weight: bold;
+
+  .ne-header {
+    font-size: 24px;
+  }
+
+  .ne-label {
+    font-size: 15px;
+  }
+
+  .ne-button {
+    font-size: 15px;
+  }
+}
+/* Container styling */
+.ne-container {
+  max-width: 650px;
+  margin-top:20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.ne-header {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.main-content {
+  background: linear-gradient(135deg, #fad1c8, #c3cfe2); /* Gradient from light to light blue */
+  padding: 10px; /* Add padding to create space inside the container */
+   /* Optional: to give rounded corners */
+   max-height: 1800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+  max-width: 1350px; /* Adjust based on your layout */
+  margin: 20px auto; /* Centering the content */
+}
+/* Form styling */
+.ne-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input and textarea styling */
+.ne-input,
+.ne-textarea {
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ne-input:focus,
+.ne-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Button group styling */
+.ne-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Button styling */
+.ne-button {
+  padding: 10px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ne-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Disabled button styling */
+.ne-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Previous button styling */
+.ne-prev-button {
+  background-color: #6c757d;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 650px) {
+  .ne-container {
+    padding: 15px;
+  }
+
+  .ne-header {
+    font-size: 22px;
+  }
+
+  .ne-label {
     font-size: 14px;
-    color: #333;
-    font-family: 'Arial', sans-serif;
   }
-  
-  .form input,
-  .form textarea {
-    padding: 10px;
+
+  .ne-button {
     font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-family: 'Arial', sans-serif;
   }
-  
-  .form input[type="text"],
-  .form input[type="number"],
-  .form input[type="date"],
-  .form input[type="time"],
-  .form input[type="url"],
-  .form textarea {
-    width: 100%;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-  }
-  
-  .form textarea {
-    height: 100px;
-  }
-  
-  .button {
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .button:hover {
-    background-color: #45a049;
-  }
-  
-  @media (max-width: 600px) {
-    .container {
-      padding: 10px;
-    }
-  
-    .form input,
-    .form textarea {
-      font-size: 12px;
-    }
-  
-    .button {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
+}
+/* Button group styling */
+.ne-button-group {
+  display: flex;
+  flex-direction: row; /* Arrange buttons in a row */
+  justify-content: space-between; /* Space between buttons */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Button styling */
+.ne-button {
+  padding: 10px 15px; /* Added horizontal padding for better appearance */
+  font-size: 15px;
+  color: #000000;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 150px;
+}
+
+.ne-button:hover {
+  background-color: #c3daf4;
+  transform: scale(1.05);
+}
+
+/* Disabled button styling */
+.ne-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Previous button styling */
+.ne-prev-button {
+  background-color: transparent;
+  border-radius: 20px;
+}
+.ne-prev-button :hover{
+  background-color:#ebb6b6;
+  border-radius: 20px;
+}

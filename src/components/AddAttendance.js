@@ -157,9 +157,9 @@ const AddAttendance = () => {
     <div className="attendance-container">
       <h2>Add Attendance</h2>
 
-      <label>
+      <label className="event-label">
         Select Event:
-        <select value={selectedEventId} onChange={handleSelectChange} required>
+        <select className="event-select" value={selectedEventId} onChange={handleSelectChange} required>
           <option value="" disabled>Select an event</option>
           {events.map(event => (
             <option key={event.id} value={event.id}>{event.name}</option>
@@ -168,18 +168,19 @@ const AddAttendance = () => {
       </label>
 
       {registeredUsers.length > 0 ? (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="attendance-form">
           <h3>Mark Attendance for Registered Users</h3>
           {registeredUsers.map((person) => (
             <div key={person.userid} className="volunteer-checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={attendance[person.userid] || false}
-                  onChange={() => handleAttendanceChange(person.userid)}
-                />
-                {person.fullname}
-              </label>
+              <input
+    type="checkbox"
+    id={`checkbox-${person.userid}`}
+    checked={attendance[person.userid] || false}
+    onChange={() => handleAttendanceChange(person.userid)}
+  />
+  <label htmlFor={`checkbox-${person.userid}`} className="n">
+    {person.fullname}
+  </label>
             </div>
           ))}
           <button type="submit" className="submit-button">Submit Attendance</button>

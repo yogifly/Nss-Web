@@ -83,57 +83,71 @@ const PhotoUpload = () => {
   }, []);
 
   return (
-    <div className="photo-upload-container">
-      <h2>Upload and Display Photos with Details</h2>
-      
-      {/* Form to Enter Photo Details */}
-      <input 
-        type="text" 
-        placeholder="Enter Title" 
-        value={title} 
-        onChange={(e) => setTitle(e.target.value)} 
-        required 
-      />
-      <textarea 
-        placeholder="Enter Description" 
-        value={description} 
-        onChange={(e) => setDescription(e.target.value)} 
-        required 
-      />
-      <input 
-        type="file" 
-        onChange={handleFileChange} 
-        required 
-      />
-      <button onClick={handleUpload}>Upload</button>
-      
-      {/* Progress bar */}
-      <div className="progress-bar" style={{ width: `${progress}%`, backgroundColor: 'green', height: '5px' }}></div>
-      {progress > 0 && <p>{progress}%</p>}
-
+    <div className="nss-photo-upload-container">
+      <div className="nss-upload-section">
+        <h2 className="nss-upload-header">Upload and Display Photos with Details</h2>
+  
+        {/* Form to Enter Photo Details */}
+        <input 
+          type="text" 
+          className="nss-input-title" 
+          placeholder="Enter Title" 
+          value={title} 
+          onChange={(e) => setTitle(e.target.value)} 
+          required 
+        />
+        <textarea 
+          className="nss-textarea-description" 
+          placeholder="Enter Description" 
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)} 
+          required 
+        />
+        <label htmlFor="file-upload" className="nss-file-upload-label">
+          <input 
+            type="file" 
+            id="file-upload" 
+            className="nss-input-file" 
+            onChange={handleFileChange} 
+            required 
+          />
+          <span className="nss-file-upload-icon">📤</span> {/* Upload icon */}
+          Upload File
+        </label>
+        <button className="nss-upload-button" onClick={handleUpload}>Upload</button>
+        
+        {/* Progress bar */}
+        <div className="nss-progress-bar">
+          <div className="nss-progress-fill" style={{ width: `${progress}%` }}></div>
+        </div>
+        {progress > 0 && <p className="nss-progress-text">{progress}%</p>}
+      </div>
+  
       {/* Display uploaded images with details */}
-      <div className="image-gallery">
-        <h3>Uploaded Images</h3>
-        {images.length > 0 ? (
-          images.map((imageData, index) => (
-            <div key={index} className="image-item">
-              <img 
-                src={imageData.imageUrl} 
-                alt={`Uploaded ${index}`} 
-                width="150" 
-                height="150" 
-                style={{ margin: '10px' }} 
-              />
-              <h4>{imageData.title}</h4>
-              <p>{imageData.description}</p>
-            </div>
-          ))
-        ) : (
-          <p>No images uploaded yet</p>
-        )}
+      <div className="nss-image-gallery">
+        <h3 className="nss-gallery-header">Uploaded Images</h3>
+        <div className="nss-image-grid">
+          {images.length > 0 ? (
+            images.map((imageData, index) => (
+              <div key={index} className="nss-image-item">
+                <img 
+                  src={imageData.imageUrl} 
+                  alt={`Uploaded ${index}`} 
+                  className="nss-image-display" 
+                />
+                <h4 className="nss-image-title">{imageData.title}</h4>
+                <p className="nss-image-description">{imageData.description}</p>
+              </div>
+            ))
+          ) : (
+            <p className="nss-no-images-text">No images uploaded yet</p>
+          )}
+        </div>
       </div>
     </div>
   );
+  
+  
 };
 
 export default PhotoUpload;

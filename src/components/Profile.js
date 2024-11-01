@@ -47,10 +47,7 @@ const Profile = () => {
     return (
       <div className="infographic-container">
         <div className="infographic">
-          <div
-            className="infographic-fill"
-            style={{ width: `${percentage}%` }}
-          ></div>
+          <div className="infographic-fill" style={{ width: `${percentage}%` }}></div>
         </div>
         <p className="infographic-text">
           {hoursRegistered} / {maxHours} hours registered
@@ -65,38 +62,46 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h2>User Profile</h2>
-      {userDetails ? (
-        <>
-          <div className="profile-info">
-            <h3>Welcome, {userDetails.fullname}!</h3>
-            <p><strong>Email:</strong> {userDetails.email}</p>
-            <p><strong>Class:</strong> {userDetails.class}</p>
-            <p><strong>Phone No:</strong> {userDetails.phoneno}</p>
-            <p><strong>PID:</strong> {userDetails.pid}</p>
-            <p><strong>User Type:</strong> {localStorage.getItem('userType')}</p>
-          </div>
-          <div className="hours-container">
-            <h4>Hours Registered:</h4>
-            {renderInfographic(userDetails.hoursRegistered)}
-          </div>
-          <div className="events-registered">
-            <h4>Events Registered:</h4>
-            {userDetails.EventsRegistered && userDetails.EventsRegistered.length > 0 ? (
-              userDetails.EventsRegistered.map((event, index) => (
-                <div key={index} className="event-item">
-                  <p><strong>Event Name:</strong> {event.eventname}</p>
-                  <p><strong>Status:</strong> {event.status ?? 'Pending'}</p>
-                </div>
-              ))
-            ) : (
-              <p>No events registered yet.</p>
-            )}
-          </div>
-        </>
-      ) : (
-        <p>No user details found.</p>
-      )}
+      {/* Left Column */}
+      <div className="profile-left">
+        <h2>User Profile</h2>
+        {userDetails ? (
+          <>
+            <div className="profile-info">
+              <h3>Welcome, {userDetails.fullname}!</h3>
+              <p><strong>Email:</strong> {userDetails.email}</p>
+              <p><strong>Class:</strong> {userDetails.class}</p>
+              <p><strong>Phone No:</strong> {userDetails.phoneno}</p>
+              <p><strong>PID:</strong> {userDetails.pid}</p>
+              <p><strong>User Type:</strong> {localStorage.getItem('userType')}</p>
+            </div>
+            <div className="hours-container">
+              <h4>Hours Registered:</h4>
+              {renderInfographic(userDetails.hoursRegistered)}
+            </div>
+          </>
+        ) : (
+          <p>No user details found.</p>
+        )}
+      </div>
+
+      {/* Right Column */}
+      <div className="profile-right">
+        <h4>Events Registered:</h4>
+        {userDetails && userDetails.EventsRegistered && userDetails.EventsRegistered.length > 0 ? (
+          userDetails.EventsRegistered.map((event, index) => (
+            <div
+              key={index}
+              className={`event-item ${event.status === 'present' ? 'event-present' : 'event-pending'}`}
+            >
+              <p><strong>Event Name:</strong> {event.eventname}</p>
+              <p><strong>Status:</strong> {event.status ?? 'Pending'}</p>
+            </div>
+          ))
+        ) : (
+          <p>No events registered yet.</p>
+        )}
+      </div>
     </div>
   );
 };

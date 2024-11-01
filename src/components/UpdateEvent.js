@@ -16,9 +16,10 @@ const UpdateEvent = () => {
     whatsappLink: '',
     limit: '',
   });
-  const [registrations, setRegistrations] = useState([]); // State to store registered volunteers
-  const [showUpdateForm, setShowUpdateForm] = useState(false); // Toggle for update section
-  const [showVolunteers, setShowVolunteers] = useState(false); // Toggle for volunteers section
+  const [registrations, setRegistrations] = useState([]);
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const [showVolunteers, setShowVolunteers] = useState(false);
+  const [step, setStep] = useState(0); // Step state to control form navigation
 
   // Fetch events from Firestore
   const fetchEvents = async () => {
@@ -29,7 +30,6 @@ const UpdateEvent = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log('Fetched events:', eventList); // Log the fetched events
       setEvents(eventList);
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -45,19 +45,8 @@ const UpdateEvent = () => {
     const eventId = e.target.value;
     setSelectedEventId(eventId);
     const selectedEvent = events.find(event => event.id === eventId);
-    console.log('Selected Event:', selectedEvent); // Log the selected event
-
-    // Set event data
     setEventData(selectedEvent || {});
-
-    // Check if 'registrations' exist and set them
-    if (selectedEvent && selectedEvent.registrations) {
-      setRegistrations(selectedEvent.registrations); // Assuming registrations is an array of objects
-      console.log('Registered Volunteers:', selectedEvent.registrations); // Log registered volunteers
-    } else {
-      setRegistrations([]);
-      console.log('No volunteers registered for this event.');
-    }
+    setRegistrations(selectedEvent?.registrations || []);
   };
 
   // Function to handle input change
@@ -87,91 +76,118 @@ const UpdateEvent = () => {
         limit: '',
       });
       setSelectedEventId('');
-      fetchEvents(); // Refresh the event list
+      fetchEvents();
     } catch (error) {
       console.error('Error updating event: ', error);
       alert('Failed to update event.');
     }
   };
 
+  // Define form steps
+  const formSteps = [
+    <>
+      <label>
+        Name:
+        <input type="text" name="name" value={eventData.name} onChange={handleChange} required />
+      </label>
+      <label>
+        Description:
+        <textarea name="description" value={eventData.description} onChange={handleChange} required />
+      </label>
+    </>,
+    <>
+      <label>
+        Hours Alloted:
+        <input type="number" name="hoursAlloted" value={eventData.hoursAlloted} onChange={handleChange} required />
+      </label>
+      <label>
+        Date:
+        <input type="date" name="date" value={eventData.date} onChange={handleChange} required />
+      </label>
+    </>,
+    <>
+      <label>
+        Reporting Time:
+        <input type="time" name="reportingTime" value={eventData.reportingTime} onChange={handleChange} required />
+      </label>
+      <label>
+        Rules:
+        <textarea name="rules" value={eventData.rules} onChange={handleChange} required />
+      </label>
+    </>,
+    <>
+      <label>
+        WhatsApp Link:
+        <input type="url" name="whatsappLink" value={eventData.whatsappLink} onChange={handleChange} required />
+      </label>
+      <label>
+        Limit:
+        <input type="number" name="limit" value={eventData.limit} onChange={handleChange} required />
+      </label>
+    </>
+  ];
+
+  // Navigation handlers
+  const handleNext = () => setStep((prevStep) => Math.min(prevStep + 1, formSteps.length - 1));
+  const handlePrev = () => setStep((prevStep) => Math.max(prevStep - 1, 0));
+
   return (
     <div className="container">
       <h2>Manage Event</h2>
 
-      {/* Select Event */}
-      <label>
-        Select Event:
-        <select value={selectedEventId} onChange={handleSelectChange} required>
-          <option value="" disabled>Select an event</option>
-          {events.map(event => (
-            <option key={event.id} value={event.id}>{event.name}</option>
-          ))}
-        </select>
-      </label>
+      <div className="update-event-content">
+        {/* Left Column: Update Event Form */}
+        <div className="update-event-left">
+          <label>
+            Select Event:
+            <select value={selectedEventId} onChange={handleSelectChange} required>
+              <option value="" disabled>Select an event</option>
+              {events.map(event => (
+                <option key={event.id} value={event.id}>{event.name}</option>
+              ))}
+            </select>
+          </label>
 
-      {/* Section 1: Update Event Form */}
-      <div className="section">
-        <h3 className="collapsible-header" onClick={() => setShowUpdateForm(!showUpdateForm)}>
-          Update Event {showUpdateForm ? '▲' : '▼'}
-        </h3>
-        {showUpdateForm && (
-          <form className="form" onSubmit={handleSubmit}>
-            <label>
-              Name:
-              <input type="text" name="name" value={eventData.name} onChange={handleChange} required />
-            </label>
-            <label>
-              Description:
-              <textarea name="description" value={eventData.description} onChange={handleChange} required />
-            </label>
-            <label>
-              Hours Alloted:
-              <input type="number" name="hoursAlloted" value={eventData.hoursAlloted} onChange={handleChange} required />
-            </label>
-            <label>
-              Date:
-              <input type="date" name="date" value={eventData.date} onChange={handleChange} required />
-            </label>
-            <label>
-              Reporting Time:
-              <input type="time" name="reportingTime" value={eventData.reportingTime} onChange={handleChange} required />
-            </label>
-            <label>
-              Rules:
-              <textarea name="rules" value={eventData.rules} onChange={handleChange} required />
-            </label>
-            <label>
-              WhatsApp Link:
-              <input type="url" name="whatsappLink" value={eventData.whatsappLink} onChange={handleChange} required />
-            </label>
-            <label>
-              Limit:
-              <input type="number" name="limit" value={eventData.limit} onChange={handleChange} required />
-            </label>
-            <button type="submit" className="button">Update</button>
-          </form>
-        )}
-      </div>
-
-      {/* Section 2: Registered Volunteers */}
-      <div className="section">
-        <h3 className="collapsible-header" onClick={() => setShowVolunteers(!showVolunteers)}>
-          Registered Volunteers {showVolunteers ? '▲' : '▼'}
-        </h3>
-        {showVolunteers && (
-          <div className="registrations-list">
-            <h3>Registered Volunteers</h3>
-            {registrations.length > 0 ? (
-              <ul>
-                {registrations.map((volunteer, index) => (
-                  <li key={index}>{volunteer.fullname}</li> // Displaying the full name of registered volunteers
-                ))}
-              </ul>
-            ) : (
-              <p>No volunteers have registered for this event yet.</p>
+          <div className="section">
+            <h3 className="collapsible-header" onClick={() => setShowUpdateForm(!showUpdateForm)}>
+              Update Event {showUpdateForm ? '▲' : '▼'}
+            </h3>
+            {showUpdateForm && (
+              <form className="form" onSubmit={handleSubmit}>
+                {formSteps[step]} {/* Render the current step */}
+                
+                <div className="navigation-buttons">
+                  {step > 0 && <button type="button" onClick={handlePrev}>Previous</button>}
+                  {step < formSteps.length - 1 && <button type="button" onClick={handleNext}>Next</button>}
+                  {step === formSteps.length - 1 && <button type="submit" className="button">Update</button>}
+                </div>
+              </form>
             )}
           </div>
-        )}
+        </div>
+
+        {/* Right Column: Registered Volunteers */}
+        <div className="update-event-right">
+          <div className="section">
+            <h3 className="collapsible-header" onClick={() => setShowVolunteers(!showVolunteers)}>
+              Registered Volunteers {showVolunteers ? '▲' : '▼'}
+            </h3>
+            {showVolunteers && (
+              <div className="registrations-list">
+                <h3>Registered Volunteers</h3>
+                {registrations.length > 0 ? (
+                  <ul>
+                    {registrations.map((volunteer, index) => (
+                      <li key={index}>{volunteer.fullname}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No volunteers have registered for this event yet.</p>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

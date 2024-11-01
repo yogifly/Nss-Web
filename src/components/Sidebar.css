@@ -1,0 +1,241 @@
+.admin-sidebar {
+    width: 250px;
+    background-color: #111827;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding-top: 1rem;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu li {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-menu li:hover,
+.sidebar-menu li.active {
+    background-color: #374151;
+}
+
+.icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-top: 1px solid #374151;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.profile-info {
+    color: #9CA3AF;
+}
+
+.profile-info p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.profile-info small {
+    font-size: 0.9rem;
+}
+.sub-menu {
+    list-style: none;
+    padding-left: 20px; /* Indent the sub-menu */
+}
+
+.sub-menu li {
+    padding: 10px 0; /* Add padding for each sub-menu item */
+}
+
+.caret {
+    margin-left: auto; /* Push the caret to the right */
+    transition: transform 0.3s ease;
+}
+
+.caret.open {
+    transform: rotate(180deg); /* Rotate caret when the menu is open */
+}
+.admin-sidebar {
+    width: 250px;
+    background-color: #1f1f2e;
+    color: #fff;
+    padding-top: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li.active, .sidebar-menu li:hover {
+    background-color: #333;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.income .menu-item,
+.event-management .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caret {
+    transition: transform 0.3s ease;
+}
+
+.caret.open {
+    transform: rotate(180deg);
+}
+
+.sub-menu {
+    list-style: none;
+    padding: 0;
+    padding-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-menu li {
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.sub-menu li.active, .sub-menu li:hover {
+    background-color: #444;
+}
+
+.sub-menu li span {
+    display: inline-block;
+}
+/* Style for the sub-menu container */
+.sub-menu {
+    list-style: none;
+    padding-left: 20px; /* Indent sub-menu items */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    gap: 10px; /* Add space between items */
+}
+
+/* Style for each sub-menu item */
+.sub-menu li {
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+/* Ensure active sub-menu item has distinct style */
+.sub-menu li.active {
+    font-weight: bold;
+    color: #007bff;
+}
+.admin-sidebar {
+    width: 250px;
+    background-color: #1f1f2e;
+    color: #fff;
+    padding-top: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li.active, .sidebar-menu li:hover {
+    background-color: #333;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.event-management .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caret {
+    transition: transform 0.3s ease;
+}
+
+.caret.open {
+    transform: rotate(180deg);
+}
+
+.sub-menu {
+    list-style: none;
+    padding: 0;
+    padding-left: 20px;
+    margin-top: 5px;
+    display: block; /* Ensures sub-menu items are below */
+}
+
+.sub-menu li {
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.sub-menu li.active, .sub-menu li:hover {
+    background-color: #444;
+}
+
+.sub-menu li span {
+    display: block; /* Places each item on a new line */
+}
