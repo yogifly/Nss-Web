@@ -1,0 +1,130 @@
+[debug] [2024-11-04T20:41:39.094Z] ----------------------------------------------------------------------
+[debug] [2024-11-04T20:41:39.102Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ingle\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-11-04T20:41:39.103Z] CLI Version:   13.24.0
+[debug] [2024-11-04T20:41:39.103Z] Platform:      win32
+[debug] [2024-11-04T20:41:39.103Z] Node Version:  v20.16.0
+[debug] [2024-11-04T20:41:39.104Z] Time:          Tue Nov 05 2024 02:11:39 GMT+0530 (India Standard Time)
+[debug] [2024-11-04T20:41:39.104Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-04T20:41:39.124Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-04T20:41:39.125Z] > authorizing via signed-in user (ingleyogesh2004@student.sfit.ac.in)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\SEM5 Final\Nss-Web
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-11-04T20:48:01.573Z] Checked if tokens are valid: false, expires at: 1730751627579
+[debug] [2024-11-04T20:48:01.574Z] Checked if tokens are valid: false, expires at: 1730751627579
+[debug] [2024-11-04T20:48:01.575Z] > refreshing access token with scopes: []
+[debug] [2024-11-04T20:48:01.580Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-04T20:48:01.580Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-04T20:48:01.946Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-04T20:48:01.947Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-04T20:48:01.971Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-11-04T20:48:02.993Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-04T20:48:02.993Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project nssweb-3dfea (nssweb) 
+[info] 
+=== Dataconnect Setup
+[debug] [2024-11-04T20:48:14.823Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:14.823Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:14.823Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nssweb-3dfea/billingInfo [none]
+[debug] [2024-11-04T20:48:16.779Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nssweb-3dfea/billingInfo 200
+[debug] [2024-11-04T20:48:16.780Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nssweb-3dfea/billingInfo {"name":"projects/nssweb-3dfea/billingInfo","projectId":"nssweb-3dfea","billingAccountName":"","billingEnabled":false}
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[debug] [2024-11-04T20:48:16.782Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:16.783Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:16.783Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com [none]
+[debug] [2024-11-04T20:48:16.783Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com x-goog-quota-user=projects/nssweb-3dfea
+[debug] [2024-11-04T20:48:18.881Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com 200
+[debug] [2024-11-04T20:48:18.881Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com [omitted]
+[warn] !  dataconnect: missing required API sqladmin.googleapis.com. Enabling now... 
+[debug] [2024-11-04T20:48:18.883Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:18.884Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:18.884Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com:enable [none]
+[debug] [2024-11-04T20:48:18.885Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com:enable x-goog-quota-user=projects/nssweb-3dfea
+[debug] [2024-11-04T20:48:20.878Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com:enable 200
+[debug] [2024-11-04T20:48:20.879Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com:enable [omitted]
+[debug] [2024-11-04T20:48:30.892Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:30.892Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:48:30.893Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com [none]
+[debug] [2024-11-04T20:48:30.893Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com x-goog-quota-user=projects/nssweb-3dfea
+[debug] [2024-11-04T20:48:32.846Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com 200
+[debug] [2024-11-04T20:48:32.846Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/nssweb-3dfea/services/sqladmin.googleapis.com [omitted]
+[info] +  dataconnect: required API sqladmin.googleapis.com is enabled 
+[info] +  Wrote dataconnect\dataconnect.yaml 
+[info] +  Wrote dataconnect\schema\schema.gql 
+[info] +  Wrote dataconnect\connector\connector.yaml 
+[info] +  Wrote dataconnect\connector\queries.gql 
+[info] +  Wrote dataconnect\connector\mutations.gql 
+[info] +  Detected WEB app in directory D:\SEM5 Final\Nss-Web 
+[info] i  Wrote new config to D:\SEM5 Final\Nss-Web\dataconnect\connector/connector.yaml 
+[info] i  dataconnect: downloading dataconnect-emulator-1.6.0.exe... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-1.6.0.exe..."}}
+[debug] [2024-11-04T20:48:50.094Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-v1.6.0 
+[debug] [2024-11-04T20:48:51.851Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-v1.6.0 200
+[debug] [2024-11-04T20:48:51.851Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-windows-v1.6.0 [stream]
+[info] I1105 02:19:20.994319   13560 codegen.go:82] [connector "default" javascriptSdk] Generating sources into "D:\\SEM5 Final\\Nss-Web\\dataconnect-generated\\js\\default-connector"
+I1105 02:19:20.997944   13560 generate.go:40] Generated all sources. Writing them to disk...
+I1105 02:19:21.010890   13560 collector.go:107] connector "default" javascriptSdk wrote into "D:\\SEM5 Final\\Nss-Web\\dataconnect-generated\\js\\default-connector"
+Generated sources: index.d.ts [264B] esm\index.esm.js [180B] esm\package.json [17B] index.cjs.js [221B] package.json [623B] 
+I1105 02:19:21.059482   13560 installsdk.go:76] Running command: C:\Program Files\nodejs\npm.cmd install file:dataconnect-generated\js\default-connector
+
+[debug] [2024-11-04T20:51:19.543Z] ----------------------------------------------------------------------
+[debug] [2024-11-04T20:51:19.550Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ingle\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-11-04T20:51:19.551Z] CLI Version:   13.24.0
+[debug] [2024-11-04T20:51:19.551Z] Platform:      win32
+[debug] [2024-11-04T20:51:19.552Z] Node Version:  v20.16.0
+[debug] [2024-11-04T20:51:19.552Z] Time:          Tue Nov 05 2024 02:21:19 GMT+0530 (India Standard Time)
+[debug] [2024-11-04T20:51:19.552Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-04T20:51:19.569Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-04T20:51:19.570Z] > authorizing via signed-in user (ingleyogesh2004@student.sfit.ac.in)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\SEM5 Final\Nss-Web
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-11-04T20:51:32.625Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:51:32.626Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:51:32.630Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-11-04T20:51:33.814Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-04T20:51:33.814Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project nssweb-3dfea (nssweb) 
+[info] 
+=== Hosting Setup
+[debug] [2024-11-04T20:51:35.502Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:51:35.503Z] Checked if tokens are valid: true, expires at: 1730756880947
+[debug] [2024-11-04T20:51:35.503Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nssweb-3dfea [none]
+[debug] [2024-11-04T20:51:36.162Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nssweb-3dfea 200
+[debug] [2024-11-04T20:51:36.162Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nssweb-3dfea {"projectId":"nssweb-3dfea","projectNumber":"140147467349","displayName":"nssweb","name":"projects/nssweb-3dfea","resources":{"hostingSite":"nssweb-3dfea","realtimeDatabaseInstance":"nssweb-3dfea-default-rtdb","storageBucket":"nssweb-3dfea.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_2d4e1490-273b-4239-8bf2-523efbd14b38"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

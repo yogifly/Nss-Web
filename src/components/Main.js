@@ -46,13 +46,6 @@ function Main() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('username');
-    localStorage.removeItem('fullname');
-    localStorage.removeItem('userid');
-    navigate('/login');
-  };
-
   return (
     <div>
 

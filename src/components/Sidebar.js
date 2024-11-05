@@ -1,20 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Add this import at the top
 import './Sidebar.css';
 import { FaChartLine, FaList, FaClipboardList, FaUserCircle, FaCog, FaCaretDown } from 'react-icons/fa';
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
     const [isEventManagementOpen, setEventManagementOpen] = useState(false);
+    const [fullname, setFullname] = useState('');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Retrieve fullname from localStorage
+        const storedFullname = localStorage.getItem('fullname');
+        if (storedFullname) {
+            setFullname(storedFullname);
+        }
+    }, []);
 
     const handleToggleEventManagement = () => {
         setEventManagementOpen(!isEventManagementOpen);
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('fullname');
+        localStorage.removeItem('userid');
+        navigate('/login');
+    };
+
     return (
         <aside className="admin-sidebar">
+            {/* Display fullname at the top of the sidebar */}
+            <div className="sidebar-header">
+                <FaUserCircle className="user-icon" />
+                <span className="user-name">{fullname}</span>
+            </div>
             <ul className="sidebar-menu">
                 <li onClick={() => setActiveTab('statistics')} className={activeTab === 'statistics' ? 'active' : ''}>
                     <FaChartLine className="icon" />
                     <span>Add Volunteer</span>
+                </li>
+                <li onClick={() => setActiveTab('volunteers/events')} className={activeTab === 'volunteers/events' ? 'active' : ''}>
+                    <FaChartLine className="icon" />
+                    <span>Register Event</span>
                 </li>
                 <li className={`event-management ${isEventManagementOpen ? 'active' : ''}`}>
                     <div onClick={handleToggleEventManagement} className="menu-item">
@@ -36,6 +63,9 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                             <li onClick={() => setActiveTab('addAttendance')} className={activeTab === 'addAttendance' ? 'active' : ''}>
                                 <span>Add Attendance</span>
                             </li>
+                            <li onClick={() => setActiveTab('FeedbackReport')} className={activeTab === 'FeedbackReport' ? 'active' : ''}>
+                                <span>Genrate Report</span>
+                            </li>
                         </ul>
                     )}
                 </li>
@@ -54,6 +84,11 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                 <li onClick={() => setActiveTab('profile')} className={activeTab === 'profile' ? 'active' : ''}>
                     <FaCog className="icon" />
                     <span>Profile</span>
+                </li>
+                {/* Add Logout option here */}
+                <li onClick={handleLogout} className="logout">
+                    <FaUserCircle className="icon" />
+                    <span>Logout</span>
                 </li>
                 
             </ul>

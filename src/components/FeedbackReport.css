@@ -1,89 +1,158 @@
+/* Container */
 .feedback-report-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f9;
-  max-width: 1200px;
-  margin: auto;
+  background-color: #F8FAFC;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-.feedback-report-container h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.dropdown {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  font-size: 1em;
-}
-
-.error {
-  color: #e74c3c;
+/* Title */
+.feedback-report-title {
+  font-size: 26px;
   font-weight: bold;
+  color: #133E87;
   text-align: center;
-}
-
-.feedback-display {
-  margin-top: 20px;
-}
-
-.feedback-display h3 {
-  text-align: center;
-  color: #2c3e50;
   margin-bottom: 20px;
 }
 
-.question-answer-pair {
-  margin: 20px 0;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
-}
-
-.question-answer-pair p {
-  font-size: 1.1em;
-  font-weight: 600;
-  color: #34495e;
-}
-
-.chart-container {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  justify-content: center;
-}
-
-.bar-chart, .pie-chart {
-  width: 100%;
-  max-width: 400px;
-  min-width: 300px;
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-.pie-chart {
-  max-width: 50px;
-  min-width: 50px;
-  padding: 10px;
-}
-
-.generate-feedback-btn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
+/* Event Selection Label */
+.feedback-report-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #1A1A1A;
+  font-weight: 500;
   font-size: 16px;
 }
 
-.generate-feedback-btn:hover {
-  background-color: #45a049;
+/* Dropdown */
+.feedback-report-dropdown {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #E0E7FF;
+  outline: none;
+  background-color: #F1F5FB;
+  margin-bottom: 20px;
+  transition: border-color 0.3s;
+}
+
+.feedback-report-dropdown:focus {
+  border-color: #4CAF50;
+}
+
+/* Generate Button */
+.feedback-report-generate-btn {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.feedback-report-generate-btn:hover {
+  background-color: #388E3C;
+  transform: scale(1.05);
+}
+
+/* Loading and Error Messages */
+.feedback-report-loading,
+.feedback-report-error {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.feedback-report-loading {
+  color: #133E87;
+}
+
+.feedback-report-error {
+  color: #DA2E2E;
+}
+
+/* Display Container */
+.feedback-report-display {
+  margin-top: 30px;
+}
+
+/* Subtitle */
+.feedback-report-subtitle {
+  font-size: 20px;
+  color: #1A1A1A;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Two-column Layout for Charts */
+.feedback-report-chart-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Left Column for Bar Charts */
+.feedback-report-bar-charts {
+  flex: 1;
+  min-width: 300px;
+}
+
+.feedback-report-question-answer {
+  margin-bottom: 25px;
+}
+
+.feedback-report-chart-container {
+  margin-top: 10px;
+}
+
+.feedback-report-bar-chart {
+  max-width: 100%;
+}
+
+/* Right Column for Pie Chart */
+.feedback-report-pie-chart {
+  flex: 0.4;
+  min-width: 300px;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 350px;
+}
+
+.feedback-report-sentiment-title {
+  font-size: 18px;
+  color: #1A1A1A;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-report-chart-columns {
+    flex-direction: column;
+  }
+
+  .feedback-report-bar-charts,
+  .feedback-report-pie-chart {
+    max-width: 100%;
+  }
+}
+
+/* Bar Chart and Pie Chart Borders */
+.feedback-report-bar-charts .feedback-report-chart-container,
+.feedback-report-pie-chart {
+  padding: 10px;
+  border: 1px solid #E0E7FF;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }

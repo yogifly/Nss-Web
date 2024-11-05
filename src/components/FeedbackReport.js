@@ -138,53 +138,53 @@ const FeedbackReport = () => {
 
   return (
     <div className="feedback-report-container">
-      <h2>Feedback Report</h2>
-      
-      <label htmlFor="event-select">Select an Event:</label>
-      <select
-        id="event-select"
-        value={selectedEvent}
-        onChange={(e) => handleEventSelect(e.target.value)}
-        className="dropdown"
-      >
-        <option value="">-- Select an Event --</option>
-        {events.map((event) => (
-          <option key={event.id} value={event.id}>{event.name}</option>
-        ))}
-      </select>
+    <h2 className="feedback-report-title">Feedback Report</h2>
+    <label htmlFor="event-select" className="feedback-report-label">Select an Event:</label>
+    <select
+      id="event-select"
+      value={selectedEvent}
+      onChange={(e) => handleEventSelect(e.target.value)}
+      className="feedback-report-dropdown"
+    >
+      <option value="">-- Select an Event --</option>
+      {events.map((event) => (
+        <option key={event.id} value={event.id}>{event.name}</option>
+      ))}
+    </select>
 
-      {selectedEvent && (
-        <button onClick={handleGenerateFeedback} className="generate-feedback-btn">
-          Generate Feedback
-        </button>
-      )}
+    {selectedEvent && (
+      <button onClick={handleGenerateFeedback} className="feedback-report-generate-btn">
+        Generate Feedback
+      </button>
+    )}
 
-      {loading && <p>Loading feedback...</p>}
-      {errorMessage && <p className="error">{errorMessage}</p>}
+    {loading && <p className="feedback-report-loading">Loading feedback...</p>}
+    {errorMessage && <p className="feedback-report-error">{errorMessage}</p>}
 
-      {showCharts && feedbackData.length > 0 && (
-        <div className="feedback-display">
-          <h3>Feedback for Selected Event</h3>
-          {feedbackData[0].questions.map((question, qIndex) => (
-            <div key={qIndex} className="question-answer-pair">
-              <p><strong>Q{qIndex + 1}: {question}</strong></p>
-              <div className="chart-container">
-                <div className="bar-chart">
+    {showCharts && feedbackData.length > 0 && (
+      <div className="feedback-report-display">
+        <h3 className="feedback-report-subtitle">Feedback for Selected Event</h3>
+        
+        <div className="feedback-report-chart-columns">
+          <div className="feedback-report-bar-charts">
+            {feedbackData[0].questions.map((question, qIndex) => (
+              <div key={qIndex} className="feedback-report-question-answer">
+                <p><strong>Q{qIndex + 1}: {question}</strong></p>
+                <div className="feedback-report-chart-container">
                   <Bar data={getBarChartData(qIndex)} options={{ responsive: true, plugins: { legend: { position: 'top' } }}} />
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
 
-          <div className="chart-container">
-            <div className="pie-chart" style={{ maxWidth: '350px', margin: 'auto' }}>
-              <h3>Overall Sentiment Analysis</h3>
-              <Pie data={getPieChartData()} options={{ responsive: true, plugins: { legend: { position: 'top' } }}} />
-            </div>
+          <div className="feedback-report-pie-chart">
+            <h3 className="feedback-report-sentiment-title">Overall Sentiment Analysis</h3>
+            <Pie data={getPieChartData()} options={{ responsive: true, plugins: { legend: { position: 'top' } }}} />
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
   );
 };
 

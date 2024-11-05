@@ -101,7 +101,7 @@ const Navbar = () => {
                         </li>
                         <li style={navLinkItemStyle}>
                             <Link 
-                                to="/team" 
+                                to="#" 
                                 style={navLinkStyle}
                                 onMouseOver={(e) => e.target.style.color = navLinkHoverStyle.color}
                                 onMouseOut={(e) => e.target.style.color = navLinkStyle.color}

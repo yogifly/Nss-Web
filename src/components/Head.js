@@ -11,6 +11,7 @@ import FeedbackReport from './FeedbackReport';
 import ResponseForm from './ResponseForm';
 import ReportsPage from './ReportsPage';
 import PhotoUpload from './PhotoUpload';
+import EventsList from './EventsList';
 import Main from './Main';
 
 const Head = () => {
@@ -23,10 +24,12 @@ const Head = () => {
             <main className="main-content">
             {activeTab === '' && <Main />}
                 {activeTab === 'statistics' && <AddVolunteer />}
+                {activeTab === 'volunteers/events' && <EventsList />}
                 {/* Add other components based on activeTab values */}
                 {activeTab === 'newEvent' && <NewEvent />}
                 {activeTab === 'manageEvent' && <UpdateEvent/>}
                 {activeTab === 'addFeedback' && <FeedbackForm/>}
+                {activeTab === 'FeedbackReport' && <FeedbackReport/>}
                 {activeTab === 'addAttendance' && <AddAttendance/>}
                 {activeTab === 'feedback' && <ResponseForm/>}
                 {activeTab === 'analysis' && <ReportsPage/>}

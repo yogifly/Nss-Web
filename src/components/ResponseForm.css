@@ -19,7 +19,7 @@
 h2 {
   text-align: center;
   color: #007bff; /* Use primary theme color */
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -82,7 +82,7 @@ h2 {
 
 /* Range slider styling */
 .rating-slider {
-  -webkit-appearance: none;
+  
   width: 100%;
   height: 10px;
   background: transparent;
@@ -265,7 +265,7 @@ select,
 
 /* Title styling */
 .response-form-container h2 {
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
   text-align: center;
   margin-bottom: 20px;
@@ -279,7 +279,7 @@ select,
 }
 
 .input-group label {
-  font-size: 20px;
+  font-size: 17px;
   color: #333;
   margin-bottom: 8px;
 }
@@ -289,7 +289,7 @@ select,
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #fff;
-  font-size: 25px;
+  font-size: 17px;
   color: #333;
   outline: none;
 }

@@ -96,12 +96,13 @@ h2 {
 
 /* Content Area */
 .content {
-  max-width: 600px;
+  max-width: 500px;
   margin: 50px auto; /* Adjust margin-top to create space below the navbar */
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
 /* Optional additional styles for headings */

@@ -85,7 +85,7 @@ const PhotoUpload = () => {
   return (
     <div className="nss-photo-upload-container">
       <div className="nss-upload-section">
-        <h2 className="nss-upload-header">Upload and Display Photos with Details</h2>
+        <h2 className="nss-upload-header">Update gallery</h2>
   
         {/* Form to Enter Photo Details */}
         <input 

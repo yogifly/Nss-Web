@@ -75,13 +75,13 @@ const AddVolunteer = () => {
     modal: {
       width: '90%',
       maxWidth: '500px',
-      margin: '10vh auto',
       backgroundColor: '#FFF',
       borderRadius: '8px',
       boxShadow: '0 5px 20px rgba(0, 0, 0, 0.3)',
       padding: '2rem',
       position: 'relative',
       fontFamily: '"Roboto", sans-serif',
+      
     },
     header: {
       fontSize: '1.5rem',

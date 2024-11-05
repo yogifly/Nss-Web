@@ -1,42 +1,99 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-  }
-  
-  .events-list {
-    margin-bottom: 20px;
-  }
-  
-  .event-item {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .event-item:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .event-details {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #ffffff;
-  }
-  
-  .button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+.nss-events-container {
+  width: 1100px;
+  margin-top: 5px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  border: 2px solid #800000; /* Dark red border for NSS theme */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.nss-events-header {
+  color: #800000;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Events List */
+.nss-events-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Event Item Styling (Stone look) */
+.nss-event-item {
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nss-event-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nss-event-name {
+  font-size: 18px;
+  color: #800000;
+  margin-bottom: 8px;
+}
+
+.nss-event-description {
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Event Details Section Styling */
+.nss-event-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nss-selected-event-name {
+  color: #800000;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.nss-event-details p {
+  font-size: 16px;
+  margin: 4px 0;
+  color: #333333;
+}
+
+.nss-event-details a {
+  color: #800000;
+  text-decoration: underline;
+}
+
+/* Register Button Styling */
+.nss-register-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: #800000;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nss-register-button:hover {
+  background-color: #600000;
+}

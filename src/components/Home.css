@@ -1,159 +1,93 @@
-/* General reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+/* General NSS Theme Colors */
+:root {
+  --nss-navy-blue: #04255e;
+  --nss-red: #DA2E2E;
+  --nss-white: #FFFFFF;
+  --nss-gray: #F8FAFC;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
-  background-color: #f4f4f4;
+/* Container */
+.nss-app {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: var(--nss-gray);
 }
 
 /* Navbar Styles */
-.navbar {
+.nss-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 1rem 2rem;
-  color: white;
-  width: 100%; /* Make sure navbar spans full width */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  background-color: var(--nss-navy-blue);
+  color: var(--nss-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar Logo */
-.navbar-left {
+/* Logo */
+.nss-logo h1 {
   font-size: 24px;
-  font-weight: bold;
+  color: var(--nss-white);
+  margin: 0;
 }
 
-.navbar-left a {
-  margin-left: 20px;
+/* Navbar Links */
+.nss-nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nss-nav-link {
+  color: var(--nss-white);
   text-decoration: none;
-  color: white;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 
-.navbar-left a:hover {
-  color: #ddd;
+.nss-nav-link:hover {
+  color: var(--nss-red);
 }
 
-/* Navbar Right Section Links */
-.navbar-links {
+/* Profile Section */
+.nss-profile-section {
   display: flex;
-  list-style: none;
+  align-items: center;
+  gap: 15px;
 }
 
-.navbar-links li {
-  margin-left: 20px;
+.nss-username {
+  color: var(--nss-white);
+  font-weight: 500;
 }
 
-.navbar-links a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  padding: 10px;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border-radius: 4px;
-}
-
-.navbar-links a:hover {
-  color: #fff;
-  background-color: #555;
-}
-
-/* Dropdown Styles */
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  background-color: transparent;
-  color: white;
-  padding: 10px;
-  font-size: 18px;
+.nss-logout-button {
+  padding: 6px 12px;
+  background-color: var(--nss-red);
+  color: var(--nss-white);
   border: none;
+  border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #444;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  border-radius: 4px;
+.nss-logout-button:hover {
+  background-color: #b02020;
 }
 
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-  background-color: #555;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #444;
-}
-
-/* Header Section */
-.header {
+/* Main Content */
+.nss-main-content {
+  padding: 20px;
   text-align: center;
-  margin-top: 50px;
-  width: 100%; /* Ensure header is 100% width */
 }
 
-.header h2 {
-  font-size: 36px;
-  color: #333;
+.nss-header h2 {
+  font-size: 28px;
+  color: var(--nss-navy-blue);
+  margin-bottom: 10px;
 }
 
-.header p {
-  font-size: 20px;
-  color: #666;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .navbar-links {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    display: none; /* Hide menu initially */
-    background-color: #333;
-  }
-
-  .navbar-links.active {
-    display: flex;
-  }
-
-  .navbar-links li {
-    margin: 10px 0;
-  }
-
-  .navbar-left a {
-    margin: 10px 0;
-  }
-
-  .dropbtn {
-    display: none;
-  }
+.nss-header p {
+  color: var(--nss-navy-blue);
+  font-size: 16px;
 }

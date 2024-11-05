@@ -1,6 +1,7 @@
 .app-container {
     display: flex;         /* Enable flexbox for side-by-side layout */
-    height: 100vh;         /* Full viewport height */
+    height: 100vh; 
+    overflow-y: auto;        /* Full viewport height */
 }
 
 .admin-sidebar {
@@ -27,7 +28,7 @@
 .main-content {
     flex: 1; /* Take the remaining width */
     padding: 20px; /* Add padding for content */
-    overflow: hidden; /* Prevent overflow */
+    
     position: relative; /* Positioning for any absolute children */
     background: linear-gradient(to right, #f8f9fa, #e9ecef); /* Optional background gradient */
 }
@@ -65,5 +66,6 @@ html, body {
 .reports-page-container,
 .profile-container {
     /* Adjust height considering header/footer if present */
-    overflow-y: auto; /* Allow internal scrolling for each component */
+    /* Allow internal scrolling for each component */
+    overflow-y: auto;
 }
