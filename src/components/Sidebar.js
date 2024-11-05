@@ -39,9 +39,13 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                     <FaChartLine className="icon" />
                     <span>Add Volunteer</span>
                 </li>
+                <li onClick={() => setActiveTab('head/manage-volunteers')} className={activeTab === 'head/manage-volunteers' ? 'active' : ''}>
+                    <FaChartLine className="icon" />
+                    <span>Manage Volunteer</span>
+                </li>
                 <li onClick={() => setActiveTab('volunteers/events')} className={activeTab === 'volunteers/events' ? 'active' : ''}>
                     <FaChartLine className="icon" />
-                    <span>Register Event</span>
+                    <span>Register For Event</span>
                 </li>
                 <li className={`event-management ${isEventManagementOpen ? 'active' : ''}`}>
                     <div onClick={handleToggleEventManagement} className="menu-item">

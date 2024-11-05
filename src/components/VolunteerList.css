@@ -1,76 +1,118 @@
-/* src/components/VolunteerList.css */
+/* Red, Navy Blue, and White Theme Colors */
+:root {
+  --theme-primary-color: #002855; /* Navy Blue */
+  --theme-secondary-color: #03720d; /* Red */
+  --theme-text-color: #ffffff; /* White */
+  --theme-border-color: #b0bec5; /* Light Gray */
+  --theme-input-bg: #e3f2fd; /* Light Blue */
+  --theme-btn-hover: #ba000d; /* Darker Red */
+}
 
-.volunteer-list-container {
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-  }
-  
-  .volunteer-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .volunteer-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .edit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .edit-form input {
-    padding: 8px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-  }
-  
-  .button-group {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .button-group .btn {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .btn-save {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .btn-cancel {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .btn-edit {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .btn-delete {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  .btn-save:hover,
-  .btn-cancel:hover,
-  .btn-edit:hover,
-  .btn-delete:hover {
-    opacity: 0.9;
-  }
-  
+/* Container Styling */
+.nss-volunteer-list-container {
+  background-color: var(--theme-primary-color);
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--theme-text-color);
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.nss-volunteer-list-title {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--theme-text-color);
+}
+
+/* Button Styles */
+.nss-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: var(--theme-text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nss-btn-add-all {
+  background-color: var(--theme-secondary-color);
+  display: block;
+  margin: 10px auto;
+}
+
+.nss-btn-save {
+  background-color: var(--theme-secondary-color);
+}
+
+.nss-btn-cancel {
+  background-color: #455a64; /* Dark Gray */
+}
+
+.nss-btn-edit {
+  background-color: var(--theme-secondary-color);
+}
+
+.nss-btn-delete {
+  background-color: #b71c1c; /* Dark Red */
+}
+
+.nss-btn:hover {
+  background-color: var(--theme-btn-hover);
+}
+
+/* Input Fields */
+.nss-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid var(--theme-border-color);
+  border-radius: 4px;
+  background-color: var(--theme-input-bg);
+  color: var(--theme-primary-color);
+}
+
+/* Volunteer List */
+.nss-volunteer-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.nss-volunteer-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--theme-input-bg);
+  border: 1px solid var(--theme-border-color);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  color: var(--theme-primary-color);
+}
+
+.nss-volunteer-info {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/* Button Group */
+.nss-button-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* Status Messages */
+.nss-status-messages {
+  margin-top: 15px;
+}
+
+.nss-status-message {
+  background-color: var(--theme-secondary-color);
+  padding: 8px;
+  color: var(--theme-text-color);
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}

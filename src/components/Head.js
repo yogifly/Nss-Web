@@ -13,6 +13,8 @@ import ReportsPage from './ReportsPage';
 import PhotoUpload from './PhotoUpload';
 import EventsList from './EventsList';
 import Main from './Main';
+import VolunteerList from './VolunteerList';
+
 
 const Head = () => {
     const [activeTab, setActiveTab] = useState(''); // Set initial state
@@ -24,6 +26,7 @@ const Head = () => {
             <main className="main-content">
             {activeTab === '' && <Main />}
                 {activeTab === 'statistics' && <AddVolunteer />}
+                {activeTab === 'head/manage-volunteers' && <VolunteerList />}
                 {activeTab === 'volunteers/events' && <EventsList />}
                 {/* Add other components based on activeTab values */}
                 {activeTab === 'newEvent' && <NewEvent />}
