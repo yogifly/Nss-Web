@@ -3,107 +3,11 @@
 body, html {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: #ffffff; /* Dark navy background */
-
-
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 100vh;
   height: 100vh;
 }
 
-.login-container {
-  width: 400px;
-  padding: 20px;
-  background-color: #F0F4FA; /* Light background for contrast */
-  border-radius: 10px;
-  border-top: 5px solid #133E87; /* Dark blue top border */
-  border-bottom: 5px solid #133E87;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-h2 {
-  color: #133E87; /* Dark blue for NSS theme */
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-
-.input-group {
-  margin: 20px auto;
-  width: 100%;
-  text-align: left;
-}
-
-.input-group label {
-  color: #1A1A19; /* Dark grey for labels */
-  font-size: 14px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-input[type="text"], input[type="password"], select {
-  width: 100%;
-  padding: 14px 12px;
-  background: #E5ECF4; /* Light blue-gray for input fields */
-  color: #133E87;
-  border: 1px solid #BFECFF; /* Light blue border for input */
-  border-radius: 10px;
-  outline: none;
-  transition: border 0.3s ease;
-}
-
-input[type="text"]:focus, input[type="password"]:focus, select:focus {
-  border: 1px solid #133E87; /* Dark blue focus border */
-}
-
-.password-input {
-  position: relative;
-}
-
-.toggle-password {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  color: #133E87; /* Dark blue icon color */
-  font-size: 18px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.toggle-password:hover {
-  color: #DA2E2E; /* Red accent color on hover */
-}
-
-.login-button {
-  width: 100%;
-  padding: 15px 0;
-  background: #DA2E2E; /* Red for NSS accent */
-  color: #ffffff;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 30px;
-}
-
-.login-button:hover {
-  background: #B72828; /* Darker red on hover */
-}
-
-.login-button:active {
-  background: #9B2121; /* Even darker red when active */
-}
-
-a {
-  color: #133E87; /* Dark blue for links */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}

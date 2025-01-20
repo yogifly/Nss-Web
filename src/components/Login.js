@@ -76,50 +76,153 @@ const Login = () => {
     }
   };
 
+  const styles = {
+    loginContainer: {
+      width: "500px",
+      padding: "20px",
+      backgroundColor: "#F0F4FA",
+      borderRadius: "10px",
+      borderTop: "5px solid #133E87",
+      borderBottom: "5px solid #133E87",
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+      textAlign: "center",
+      fontFamily: "'Source Sans Pro', sans-serif",
+      marginTop: "20px"
+    },
+    header: {
+      color: "#133E87",
+      fontSize: "24px",
+      fontWeight: "400",
+      marginBottom: "30px",
+    },
+    inputGroup: {
+      margin: "20px auto",
+      width: "100%",
+      textAlign: "left",
+    },
+    label: {
+      color: "#1A1A19",
+      fontSize: "14px",
+      display: "block",
+      marginBottom: "8px",
+    },
+    input: {
+      width: "100%",
+      padding: "14px 12px",
+      background: "#E5ECF4",
+      color: "#133E87",
+      border: "1px solid #BFECFF",
+      borderRadius: "10px",
+      outline: "none",
+      transition: "border 0.3s ease",
+    },
+    inputFocus: {
+      border: "1px solid #133E87",
+    },
+    passwordInput: {
+      position: "relative",
+    },
+    togglePassword: {
+      position: "absolute",
+      top: "50%",
+      right: "10px",
+      transform: "translateY(-50%)",
+      color: "#133E87",
+      fontSize: "18px",
+      cursor: "pointer",
+      transition: "color 0.3s",
+    },
+    togglePasswordHover: {
+      color: "#DA2E2E",
+    },
+    loginButton: {
+      width: "100%",
+      padding: "15px 0",
+      background: "#DA2E2E",
+      color: "#ffffff",
+      border: "none",
+      borderRadius: "30px",
+      fontSize: "16px",
+      cursor: "pointer",
+      transition: "background 0.3s",
+      marginTop: "30px",
+    },
+    loginButtonHover: {
+      background: "#B72828",
+    },
+    loginButtonActive: {
+      background: "#9B2121",
+    },
+    link: {
+      color: "#133E87",
+      textDecoration: "none",
+    },
+    linkHover: {
+      textDecoration: "underline",
+    },
+  };
+
   return (
-    <div className="login-container">
-      <h2>Login to NSS</h2>
-      <form onSubmit={handleLogin}>
-        <div className="input-group">
-          <label htmlFor="user-type">Role</label>
-          <select id="user-type" value={userType} onChange={(e) => setUserType(e.target.value)} required>
-            <option value="head">Head</option>
-            <option value="volunteer">Volunteer</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-        <div className="input-group">
-          <label htmlFor="username">Email</label>
+  <div style={styles.loginContainer}>
+    <h2 style={styles.header}>Login to NSS</h2>
+    <form onSubmit={handleLogin}>
+      <div style={styles.inputGroup}>
+        <label htmlFor="user-type" style={styles.label}>
+          Role
+        </label>
+        <select
+          id="user-type"
+          value={userType}
+          onChange={(e) => setUserType(e.target.value)}
+          required
+          style={styles.input}
+        >
+          <option value="head">Head</option>
+          <option value="volunteer">Volunteer</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <div style={styles.inputGroup}>
+        <label htmlFor="username" style={styles.label}>
+          Email
+        </label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+          style={styles.input}
+        />
+      </div>
+      <div style={styles.inputGroup}>
+        <label htmlFor="password" style={styles.label}>
+          Password:
+        </label>
+        <div style={styles.passwordInput}>
           <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type={showPassword ? "text" : "password"}
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
+            style={styles.input}
+          />
+          <i
+            className={`fa ${showPassword ? "fa-eye-slash" : "fa-eye"}`}
+            onClick={() => setShowPassword(!showPassword)}
+            aria-hidden="true"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            style={styles.togglePassword}
           />
         </div>
-        <div className="input-group">
-          <label htmlFor="password">Password:</label>
-          <div className="password-input">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <i
-              className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} toggle-password`}
-              onClick={() => setShowPassword(!showPassword)}
-              aria-hidden="true"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            />
-          </div>
-        </div>
-        <button type="submit" className="login-button">Login</button>
-      </form>
-    </div>
-  );
+      </div>
+      <button type="submit" style={styles.loginButton}>
+        Login
+      </button>
+    </form>
+  </div>
+);
 };
 
 export default Login;

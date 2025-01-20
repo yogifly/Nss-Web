@@ -43,46 +43,101 @@ const NewEvent = () => {
     }
   };
 
+  
   return (
-    <div className="container">
-      <h2>Create New Event</h2>
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
+    <div className="event-container">
+      <h2 className="event-title">Create New Event</h2>
+      <form className="event-form" onSubmit={handleSubmit}>
+        <label className="event-label">
           Name:
-          <input type="text" name="name" value={eventData.name} onChange={handleChange} required />
+          <input
+            type="text"
+            name="name"
+            value={eventData.name}
+            onChange={handleChange}
+            required
+            className="event-input"
+          />
         </label>
-        <label>
+        <label className="event-label">
           Description:
-          <textarea name="description" value={eventData.description} onChange={handleChange} required />
+          <textarea
+            name="description"
+            value={eventData.description}
+            onChange={handleChange}
+            required
+            className="event-textarea"
+          />
         </label>
-        <label>
+        <label className="event-label">
           Hours Alloted:
-          <input type="number" name="hoursAlloted" value={eventData.hoursAlloted} onChange={handleChange} required />
+          <input
+            type="number"
+            name="hoursAlloted"
+            value={eventData.hoursAlloted}
+            onChange={handleChange}
+            required
+            className="event-input"
+          />
         </label>
-        <label>
+        <label className="event-label">
           Date:
-          <input type="date" name="date" value={eventData.date} onChange={handleChange} required />
+          <input
+            type="date"
+            name="date"
+            value={eventData.date}
+            onChange={handleChange}
+            required
+            className="event-input"
+          />
         </label>
-        <label>
+        <label className="event-label">
           Reporting Time:
-          <input type="time" name="reportingTime" value={eventData.reportingTime} onChange={handleChange} required />
+          <input
+            type="time"
+            name="reportingTime"
+            value={eventData.reportingTime}
+            onChange={handleChange}
+            required
+            className="event-input"
+          />
         </label>
-        <label>
+        <label className="event-label">
           Rules:
-          <textarea name="rules" value={eventData.rules} onChange={handleChange} required />
+          <textarea
+            name="rules"
+            value={eventData.rules}
+            onChange={handleChange}
+            required
+            className="event-textarea"
+          />
         </label>
-        <label>
+        <label className="event-label">
           WhatsApp Link:
-          <input type="url" name="whatsappLink" value={eventData.whatsappLink} onChange={handleChange} required />
+          <input
+            type="url"
+            name="whatsappLink"
+            value={eventData.whatsappLink}
+            onChange={handleChange}
+            required
+            className="event-input"
+          />
         </label>
-        <label>
+        <label className="event-label">
           Limit:
-          <input type="number" name="limit" value={eventData.limit} onChange={handleChange} required />
+          <input
+            type="number"
+            name="limit"
+            value={eventData.limit}
+            onChange={handleChange}
+            required
+            className="event-input"
+          />
         </label>
-        <button type="submit" className="button">Submit</button>
+        <button type="submit" className="event-button">Submit</button>
       </form>
     </div>
   );
 };
-
+  
 export default NewEvent;

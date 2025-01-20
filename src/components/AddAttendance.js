@@ -155,38 +155,39 @@ const AddAttendance = () => {
 
   return (
     <div className="attendance-container">
-      <h2>Add Attendance</h2>
-
-      <label>
+      <h2 className="attendance-title">Add Attendance</h2>
+  
+      <label className="attendance-label">
         Select Event:
-        <select value={selectedEventId} onChange={handleSelectChange} required>
+        <select value={selectedEventId} onChange={handleSelectChange} required className="attendance-dropdown">
           <option value="" disabled>Select an event</option>
           {events.map(event => (
             <option key={event.id} value={event.id}>{event.name}</option>
           ))}
         </select>
       </label>
-
+  
       {registeredUsers.length > 0 ? (
-        <form onSubmit={handleSubmit}>
-          <h3>Mark Attendance for Registered Users</h3>
+        <form onSubmit={handleSubmit} className="attendance-form">
+          <h3 className="attendance-subtitle">Mark Attendance</h3>
           {registeredUsers.map((person) => (
-            <div key={person.userid} className="volunteer-checkbox">
-              <label>
+            <div key={person.userid} className="attendance-volunteer-checkbox">
+              <label className="attendance-checkbox-label">
                 <input
                   type="checkbox"
                   checked={attendance[person.userid] || false}
                   onChange={() => handleAttendanceChange(person.userid)}
+                  className="attendance-checkbox"
                 />
                 {person.fullname}
               </label>
             </div>
           ))}
-          <button type="submit" className="submit-button">Submit Attendance</button>
+          <button type="submit" className="attendance-submit-button">Submit Attendance</button>
         </form>
       ) : null}
     </div>
   );
-};
+};  
 
 export default AddAttendance;

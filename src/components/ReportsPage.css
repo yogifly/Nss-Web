@@ -1,70 +1,120 @@
-/* src/ReportsPage.css */
+/* Container Styling */
+.nss-report-container {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 5px;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  border: 2px solid #800000; /* Dark red border for NSS theme */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
 
-.container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .select-event {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .select-event select {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .report {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .report-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .question {
-    margin-bottom: 20px;
-  }
-  
-  .question p {
-    font-weight: bold;
-  }
-  
-  .chart-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .bar-chart {
-    width: 80%;
-    max-width: 600px;
-  }
-  
-  .pie-chart-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .pie-chart {
-    width: 60%;
-    max-width: 350px;
-    margin: auto;
-  }
-  
-  .no-reports {
-    text-align: center;
-  }
-  
+/* Header Styling */
+.nss-report-header {
+  font-size: 2rem;
+  color: #800000; /* NSS theme dark red */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Event Selection Dropdown */
+.nss-select-event {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nss-event-dropdown {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #800000;
+  border-radius: 4px;
+  width: 60%;
+  max-width: 400px;
+  color: #333;
+}
+
+/* No Reports Message */
+.nss-no-reports {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Report Card Styling */
+.nss-report-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nss-report-title {
+  font-size: 1.5rem;
+  color: #800000;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #800000;
+  padding-bottom: 5px;
+}
+
+/* Question Styling */
+.nss-question {
+  margin-bottom: 20px;
+}
+
+.nss-question-text {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Chart Container Styling */
+.nss-chart-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nss-bar-chart, .nss-pie-chart {
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Pie Chart Container */
+.nss-pie-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.nss-pie-chart-title {
+  font-size: 1.4rem;
+  color: #006400; /* NSS theme green */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Overall Styling */
+.nss-report-container select,
+.nss-report-container h2,
+.nss-report-container h3,
+.nss-report-container p {
+  font-family: 'Roboto', sans-serif;
+}
+
+.nss-report-container .nss-pie-chart h3,
+.nss-report-container .nss-question p {
+  color: #333;
+}
+
+.nss-report-container .nss-bar-chart,
+.nss-report-container .nss-pie-chart {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 10px;
+}

@@ -87,52 +87,68 @@ const ReportsPage = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="header">Saved Reports</h2>
+    <div className="nss-report-container">
+  <h2 className="nss-report-header">Saved Reports</h2>
 
-      {/* Event Selection Dropdown */}
-      <div className="select-event">
-        <select
-          value={selectedEvent}
-          onChange={(e) => setSelectedEvent(e.target.value)}
-        >
-          <option value="">Select an Event</option>
-          {eventNames.map((eventName, index) => (
-            <option key={index} value={eventName}>
-              {eventName}
-            </option>
-          ))}
-        </select>
-      </div>
+  {/* Event Selection Dropdown */}
+  <div className="nss-select-event">
+    <select
+      className="nss-event-dropdown"
+      value={selectedEvent}
+      onChange={(e) => setSelectedEvent(e.target.value)}
+    >
+      <option value="">Select an Event</option>
+      {eventNames.map((eventName, index) => (
+        <option key={index} value={eventName}>
+          {eventName}
+        </option>
+      ))}
+    </select>
+  </div>
 
-      {filteredReports.length === 0 ? (
-        <p className="no-reports">No reports available for this event.</p>
-      ) : (
-        filteredReports.map((report, index) => (
-          <div key={index} className="report">
-            <h3 className="report-title">Report for {report.eventName}</h3>
+  {filteredReports.length === 0 ? (
+    <p className="nss-no-reports">No reports available for this event.</p>
+  ) : (
+    filteredReports.map((report, index) => (
+      <div key={index} className="nss-report-card">
+        <h3 className="nss-report-title">Report for {report.eventName}</h3>
 
-            {report.feedbackData[0].questions.map((question, qIndex) => (
-              <div key={qIndex} className="question">
-                <p>Q{qIndex + 1}: {question}</p>
-                <div className="chart-container">
-                  <div className="bar-chart">
-                    <Bar data={getBarChartData(report.feedbackData, qIndex)} options={{ responsive: true, plugins: { legend: { position: 'top' } } }} />
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            <div className="pie-chart-container">
-              <div className="pie-chart">
-                <h3 style={{ textAlign: 'center' }}>Overall Sentiment Analysis</h3>
-                <Pie data={getPieChartData(report.feedbackData)} options={{ responsive: true, plugins: { legend: { position: 'top' } } }} />
+        {report.feedbackData[0].questions.map((question, qIndex) => (
+          <div key={qIndex} className="nss-question">
+            <p className="nss-question-text">
+              Q{qIndex + 1}: {question}
+            </p>
+            <div className="nss-chart-container">
+              <div className="nss-bar-chart">
+                <Bar
+                  data={getBarChartData(report.feedbackData, qIndex)}
+                  options={{
+                    responsive: true,
+                    plugins: { legend: { position: 'top' } },
+                  }}
+                />
               </div>
             </div>
           </div>
-        ))
-      )}
-    </div>
+        ))}
+
+        <div className="nss-pie-chart-container">
+          <div className="nss-pie-chart">
+            <h3 className="nss-pie-chart-title">Overall Sentiment Analysis</h3>
+            <Pie
+              data={getPieChartData(report.feedbackData)}
+              options={{
+                responsive: true,
+                plugins: { legend: { position: 'top' } },
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
   );
 };
 

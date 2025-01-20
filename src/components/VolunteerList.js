@@ -86,69 +86,75 @@ function VolunteerList() {
 
   return (
     <div className="volunteer-list-container">
-      <h3>Volunteers List</h3>
-      <button className="btn btn-add-all" onClick={addAllVolunteers}>
-        Add All Volunteers to Firebase Auth
-      </button>
-      <ul className="volunteer-list">
-        {volunteers.map((volunteer) => (
-          <li key={volunteer.id}>
-            {editVolunteer && editVolunteer.id === volunteer.id ? (
-              <div className="edit-form">
-                <input
-                  type="text"
-                  placeholder="PID"
-                  value={newVolunteerData.pid}
-                  onChange={(e) => setNewVolunteerData({ ...newVolunteerData, pid: e.target.value })}
-                />
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  value={newVolunteerData.fullname}
-                  onChange={(e) => setNewVolunteerData({ ...newVolunteerData, fullname: e.target.value })}
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={newVolunteerData.email}
-                  onChange={(e) => setNewVolunteerData({ ...newVolunteerData, email: e.target.value })}
-                />
-                <input
-                  type="text"
-                  placeholder="Class"
-                  value={newVolunteerData.class}
-                  onChange={(e) => setNewVolunteerData({ ...newVolunteerData, class: e.target.value })}
-                />
-                <input
-                  type="text"
-                  placeholder="Phone No"
-                  value={newVolunteerData.phoneno}
-                  onChange={(e) => setNewVolunteerData({ ...newVolunteerData, phoneno: e.target.value })}
-                />
-                <div className="button-group">
-                  <button className="btn btn-save" onClick={() => handleUpdateVolunteer(volunteer.id)}>Save</button>
-                  <button className="btn btn-cancel" onClick={() => setEditVolunteer(null)}>Cancel</button>
-                </div>
-              </div>
-            ) : (
-              <>
-                <span>{volunteer.pid} - {volunteer.fullname} - {volunteer.email}</span>
-                <div className="button-group">
-                  <button className="btn btn-edit" onClick={() => handleEditClick(volunteer)}>Edit</button>
-                  <button className="btn btn-delete" onClick={() => handleDeleteVolunteer(volunteer.id)}>Delete</button>
-                </div>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-      {/* Display Status Messages */}
-      <div className="status-messages">
-        {statusMessages.map((message, index) => (
-          <p key={index} className="status-message">{message}</p>
-        ))}
-      </div>
-    </div>
+  <h3 className="volunteer-list-header">Volunteers List</h3>
+  <button className="btn btn-add-all" onClick={addAllVolunteers}>
+    Add All Volunteers to Firebase Auth
+  </button>
+  <ul className="volunteer-list">
+    {volunteers.map((volunteer) => (
+      <li key={volunteer.id} className="volunteer-item">
+        {editVolunteer && editVolunteer.id === volunteer.id ? (
+          <div className="edit-form">
+            <input
+              type="text"
+              placeholder="PID"
+              value={newVolunteerData.pid}
+              onChange={(e) => setNewVolunteerData({ ...newVolunteerData, pid: e.target.value })}
+              className="input-field"
+            />
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={newVolunteerData.fullname}
+              onChange={(e) => setNewVolunteerData({ ...newVolunteerData, fullname: e.target.value })}
+              className="input-field"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={newVolunteerData.email}
+              onChange={(e) => setNewVolunteerData({ ...newVolunteerData, email: e.target.value })}
+              className="input-field"
+            />
+            <input
+              type="text"
+              placeholder="Class"
+              value={newVolunteerData.class}
+              onChange={(e) => setNewVolunteerData({ ...newVolunteerData, class: e.target.value })}
+              className="input-field"
+            />
+            <input
+              type="text"
+              placeholder="Phone No"
+              value={newVolunteerData.phoneno}
+              onChange={(e) => setNewVolunteerData({ ...newVolunteerData, phoneno: e.target.value })}
+              className="input-field"
+            />
+            <div className="button-group">
+              <button className="btn btn-save" onClick={() => handleUpdateVolunteer(volunteer.id)}>Save</button>
+              <button className="btn btn-cancel" onClick={() => setEditVolunteer(null)}>Cancel</button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <span className="volunteer-info">{volunteer.pid} - {volunteer.fullname} - {volunteer.email}</span>
+            <div className="button-group">
+              <button className="btn btn-edit" onClick={() => handleEditClick(volunteer)}>Edit</button>
+              <button className="btn btn-delete" onClick={() => handleDeleteVolunteer(volunteer.id)}>Delete</button>
+            </div>
+          </>
+        )}
+      </li>
+    ))}
+  </ul>
+  {/* Display Status Messages */}
+  <div className="status-messages">
+    {statusMessages.map((message, index) => (
+      <p key={index} className="status-message">{message}</p>
+    ))}
+  </div>
+</div>
+
   );
 }
 

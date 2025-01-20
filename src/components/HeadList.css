@@ -1,68 +1,68 @@
-.head-list-container {
-  width: 80%;
-  margin: 0 auto;
+/* NSS Theme Styles */
+.nss-head-list-container {
+  width: 500px;
+  margin-top: 5px;
+  background-color: #f4f4f4; /* Light gray background for contrast */
   padding: 20px;
-  background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  border: 2px solid #181da5; /* Light border for a defined edge */
 }
 
-h1 {
-  color: #333;
+.nss-head-list-title {
+  color: #006400; /* Dark green color representing NSS */
+  font-size: 28px;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.head-list {
-  list-style-type: none;
-  padding: 0;
+.nss-head-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
 }
 
-.head-item {
-  background-color: #fff;
-  border: 1px solid #ddd;
+.nss-head-item {
+  background-color: #ffffff; /* White background for list items */
+  border: 1px solid #d1d1d1; /* Light border for definition */
   border-radius: 5px;
-  margin: 10px 0;
   padding: 15px;
-  text-align: left;
-  display: flex; /* To align content and buttons in a row */
-  justify-content: space-between;
-  align-items: center;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s; /* Smooth shadow transition */
 }
 
-.head-item h2 {
-  color: #007bff;
-  margin: 0 0 10px;
+.nss-head-item:hover {
+  box-shadow: 0 4px 15px rgba(0, 100, 0, 0.2); /* Shadow on hover */
 }
 
-.head-item p {
-  margin: 5px 0;
-  color: #555;
+.nss-head-fullname {
+  color: #430bfc; /* Dark green color */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-button {
-  padding: 5px 10px; /* Smaller padding for smaller buttons */
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 12px; /* Smaller font size for buttons */
+.nss-head-id,
+.nss-head-email {
+  color: #555555; /* Dark gray for secondary text */
+  margin: 5px 0; /* Margin for spacing */
 }
 
-button:hover {
-  background-color: #0056b3;
+.nss-add-to-auth-btn {
+  background-color: #f56336; /* Yellow button for visibility */
+  color: #000000; /* Black text for contrast */
+  border: none; /* Remove default border */
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color transition */
 }
 
-.add-to-auth-btn, .send-credentials-btn {
-  margin-right: 10px; /* Space between buttons */
-  display: inline-block;
-  width: 100px; /* Set a fixed width for buttons */
+.nss-add-to-auth-btn:hover {
+  background-color: #f23c04; /* Lighter yellow on hover */
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
-  gap: 10px; /* Add some space between the buttons */
+.nss-no-heads-message {
+  text-align: center;
+  font-size: 18px;
+  color: #555555; /* Dark gray */
 }

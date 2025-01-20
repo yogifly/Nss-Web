@@ -60,47 +60,53 @@ const AddHead = () => {
 
   return (
     <div className="form-container">
-      <h2>Add Head Details</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={pid}
-          onChange={(e) => setPid(e.target.value)}
-          placeholder="PID"
-          required
-        />
-        <input
-          type="text"
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
-          placeholder="Full Name"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="text"
-          value={className}
-          onChange={(e) => setClassName(e.target.value)}
-          placeholder="Class"
-          required
-        />
-        <input
-          type="text"
-          value={phoneno}
-          onChange={(e) => setPhoneno(e.target.value)}
-          placeholder="Phone Number"
-          required
-        />
-        <button type="submit">Add Head</button>
-      </form>
-      {message && <p className={`message ${message.includes('Error') ? '' : 'success'}`}>{message}</p>}  {/* Show success or error messages */}
-    </div>
+  <h2 className="form-header">Add Head Details</h2>
+  <form onSubmit={handleSubmit} className="head-form">
+    <input
+      type="text"
+      value={pid}
+      onChange={(e) => setPid(e.target.value)}
+      placeholder="PID"
+      required
+      className="input-field"
+    />
+    <input
+      type="text"
+      value={fullname}
+      onChange={(e) => setFullname(e.target.value)}
+      placeholder="Full Name"
+      required
+      className="input-field"
+    />
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      placeholder="Email"
+      required
+      className="input-field"
+    />
+    <input
+      type="text"
+      value={className}
+      onChange={(e) => setClassName(e.target.value)}
+      placeholder="Class"
+      required
+      className="input-field"
+    />
+    <input
+      type="text"
+      value={phoneno}
+      onChange={(e) => setPhoneno(e.target.value)}
+      placeholder="Phone Number"
+      required
+      className="input-field"
+    />
+    <button type="submit" className="submit-button">Add Head</button>
+  </form>
+  {message && <p className={`message ${message.includes('Error') ? 'error' : 'success'}`}>{message}</p>}
+</div>
+
   );
 };
 
