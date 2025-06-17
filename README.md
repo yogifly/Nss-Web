@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# 🇮🇳 NSS Web Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A robust web application for National Service Scheme (NSS) built using **React**, **Node.js**, and **Firebase**, empowering **Admins and Heads** to efficiently manage volunteers, events, attendance, media, and conduct sentiment analysis.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+### 🧑‍💼 Role-Based Access
+- **Admin**
+  - Can view reports (attendance, volunteers, sentiment analysis).
+  - Manage NSS heads.
+- **Head**
+  - Full control over volunteers and events.
+  - Add/Remove volunteers.
+  - Mark and manage attendance.
+  - Upload and manage gallery images.
+  - Analyze feedback using sentiment analysis.
+  - View detailed reports.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Modules
 
-### `npm test`
+| Module                | Description                                                  |
+|----------------------|--------------------------------------------------------------|
+| 📸 Gallery Management | Upload, view, and manage event photos.                       |
+| ✅ Attendance         | Mark daily/event-based attendance for volunteers.            |
+| 👥 Role Management    | Assign and manage roles: Admin, Head, Volunteer.             |
+| ➕ Add Volunteers     | Add new volunteers with profile info and contact details.    |
+| 🔄 Manage Volunteers  | Edit/update volunteer data and assign tasks.                 |
+| 📅 Event Management   | Create, edit, and track events.                              |
+| 📊 Sentiment Analysis | Analyze volunteer feedback using basic NLP techniques.       |
+| 📈 Reports            | View attendance, volunteer stats, and sentiment summaries.   |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧩 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer     | Technologies                        |
+|-----------|-------------------------------------|
+| Frontend  | React.js, Tailwind CSS              |
+| Backend   | Node.js, Express.js                 |
+| Database  | Firebase Realtime Database / Firestore |
+| Auth      | Firebase Authentication             |
+| NLP       | Python (for Sentiment Analysis APIs)|
+| Storage   | Firebase Storage                    |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔐 Roles & Permissions
 
-### `npm run eject`
+| Feature              | Admin | Head |
+|----------------------|:-----:|:----:|
+| View Reports         | ✅    | ✅   |
+| Manage Heads         | ✅    | ❌   |
+| Manage Volunteers    | ❌    | ✅   |
+| Attendance           | ❌    | ✅   |
+| Event Management     | ❌    | ✅   |
+| Sentiment Analysis   | ❌    | ✅   |
+| Gallery Management   | ❌    | ✅   |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+👥 Authors
+Yogesh Ingale — Lead Developer (React + Firebase + Node.js)
